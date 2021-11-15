@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class TechGiant {
 
-    private final static int MAX_STARTUPS = 6;
+    private static final int MAX_STARTUPS = 6;
     private int money;
     private List<Startup> startups = new LinkedList<>();
     private String name;
@@ -36,6 +36,11 @@ public class TechGiant {
         this.name = name;
     }
 
+    /**
+     * Initialization of TechGiant to determine
+     * beginning Startup.
+     * @return random int associated with Startup.
+     */
     public int initialStartup() {
         StartupFactory sf = new StartupFactory();
         Startup startup = null;
@@ -47,6 +52,11 @@ public class TechGiant {
         return random;
     }
 
+    /**
+     * Add Startup to list of TechGiant Startups.
+     * @param startup to add to the list.
+     * @return boolean for success or failure.
+     */
     public boolean addStartup(Startup startup) {
 
         if (!isFull()) {
@@ -62,10 +72,16 @@ public class TechGiant {
         return startups;
     }
 
+    /**
+     * Tells us if the Tech Giant has 6 startups already.
+     * @return boolean for success or failure.
+     */
     public boolean isFull() {
         if (startups.size() >= MAX_STARTUPS) {
             return true;
         } else {
+            System.out.println("Oh no, you already have six startups and "
+                    + "can't bear the financial load of any more!");
             return false;
         }
     }

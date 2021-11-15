@@ -1,8 +1,17 @@
 package test.java;
 
-import main.java.svalley.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.*;
+import main.java.svalley.Main;
+import main.java.svalley.PandaSuplex;
+import main.java.svalley.Startup;
+import main.java.svalley.StartupFactory;
+import main.java.svalley.TechGiant;
+import main.java.svalley.TechGiantFactory;
+import main.java.svalley.Twitter;
 
 import org.junit.Before;
 import org.junit.Test;

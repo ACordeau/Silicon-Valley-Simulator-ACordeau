@@ -1,7 +1,7 @@
 package main.java.svalley;
 
-public class Google extends Startup{
-    
+public class Google extends Startup {
+
     Google() {
         setHealth(10);
         setCurrentHealth(getHealth());

@@ -5,6 +5,8 @@ import java.util.Random;
 
 public class Startup {
 
+    private static final int MAX_LEVEL = 15;
+    
     private int health;
     private int currentHealth;
     private int attack;
@@ -13,15 +15,17 @@ public class Startup {
     private int level;
     private String name;
     private String type;
-    private final int MAX_LEVEL = 15;
+    
     // private List moves;
     // private Type type;
 
-//    private enum Type{
-//        SOCIAL_MEDIA,
-//        VIDEO_SHARING,
-//        IMAGE_SHARING
-//    }
+    /*
+    private enum Type{
+        SOCIAL_MEDIA,
+        VIDEO_SHARING,
+        IMAGE_SHARING
+    }
+    */
 
     public int getHealth() {
         return health;
@@ -87,10 +91,10 @@ public class Startup {
         this.level = level;
     }
     
-    
-
-//    public List getMoves() {
-//        return moves;
-//    }
+    /*
+    public List getMoves() {
+        return moves;
+    }
+    */
 
 }

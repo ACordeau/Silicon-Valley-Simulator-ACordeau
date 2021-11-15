@@ -2,6 +2,12 @@ package main.java.svalley;
 
 public class TechGiantFactory {
 
+    /**
+     * Factory designed to determine tech giant type
+     * at runtime.
+     * @param random int to determine tech giant.
+     * @return TechGiant type.
+     */
     public TechGiant randomTechGiant(int random) {
 
         if (random == 1) {

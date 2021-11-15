@@ -2,6 +2,12 @@ package main.java.svalley;
 
 public class StartupFactory {
 
+    /**
+     * Factory designed to choose startup
+     * at runtime.
+     * @param random int for choosing startup.
+     * @return Startup type.
+     */
     public Startup randomStartup(int random) {
 
         if (random == 1) {

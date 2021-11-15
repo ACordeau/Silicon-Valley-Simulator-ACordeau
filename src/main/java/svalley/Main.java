@@ -1,7 +1,5 @@
 package main.java.svalley;
 
-import java.util.List;
-import java.util.LinkedList;
 import java.util.Random;
 
 public class Main {
@@ -10,6 +8,10 @@ public class Main {
         start();
     }
 
+    /**
+     * Starting point of the game.
+     * @return boolean true if game completes.
+     */
     public static boolean start() {
         // System.out.println("Hello World!");
 
@@ -32,6 +34,11 @@ public class Main {
         return true;
     }
     
+    /**
+     * Code encapsulation for creating a random number
+     * when creating tech giants.
+     * @return random int between 1 and 4.
+     */
     public static int randomTechGiantNumber() {
         
         Random rand = new Random();
