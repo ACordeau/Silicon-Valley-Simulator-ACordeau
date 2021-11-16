@@ -7,7 +7,7 @@ public class Facebook extends Startup {
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("SOCIAL_MEDIA");
+        setType("SOCIAL MEDIA");
         setExp(0);
         setName("Facebook");
         setLevel(1);

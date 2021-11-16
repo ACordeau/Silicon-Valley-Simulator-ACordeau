@@ -7,7 +7,7 @@ public class Twitter extends Startup {
         setCurrentHealth(this.getHealth());
         setAttack(2);
         setDefense(1);
-        setType("SOCIAL_MEDIA");
+        setType("SOCIAL MEDIA");
         setExp(0);
         setName("Twitter");
         setLevel(1);

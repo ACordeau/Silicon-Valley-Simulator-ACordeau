@@ -7,7 +7,7 @@ public class Reddit extends Startup {
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("SOCIAL_MEDIA");
+        setType("SOCIAL MEDIA");
         setExp(0);
         setName("Reddit");
         setLevel(1);

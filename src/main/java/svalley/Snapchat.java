@@ -7,7 +7,7 @@ public class Snapchat extends Startup {
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("IMAGE_SHARING");
+        setType("IMAGE SHARING");
         setExp(0);
         setName("Snapchat");
         setLevel(1);
