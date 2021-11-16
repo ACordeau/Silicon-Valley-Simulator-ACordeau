@@ -78,10 +78,10 @@ public class TechGiant {
      */
     public boolean isFull() {
         if (startups.size() >= MAX_STARTUPS) {
-            return true;
-        } else {
             System.out.println("Oh no, you already have six startups and "
                     + "can't bear the financial load of any more!");
+            return true;
+        } else {
             return false;
         }
     }

@@ -4,7 +4,7 @@ public class PandaSuplex extends TechGiant {
 
     PandaSuplex() {
         setMoney(500);
-        setType("VIDEO_SHARING");
+        setType("VIDEO SHARING");
         setName("Tech Giant: Panda Suplex");
     }
 

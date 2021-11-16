@@ -4,7 +4,7 @@ public class Reader extends TechGiant {
 
     Reader() {
         setMoney(500);
-        setType("SOCIAL_MEDIA");
+        setType("SOCIAL MEDIA");
         setName("Tech Giant: Reader");
     }
 

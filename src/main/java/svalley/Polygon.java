@@ -4,7 +4,7 @@ public class Polygon extends TechGiant {
 
     Polygon() {
         setMoney(500);
-        setType("IMAGE_SHARING");
+        setType("IMAGE SHARING");
         setName("Tech Giant: Polygon");
     }
 
