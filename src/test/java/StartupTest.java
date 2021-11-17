@@ -3,9 +3,6 @@ package test.java;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import main.java.startups.Bing;
 import main.java.startups.Facebook;
 import main.java.startups.Google;
@@ -18,6 +15,9 @@ import main.java.startups.TikTok;
 import main.java.startups.Twitter;
 import main.java.startups.Vimeo;
 import main.java.startups.YouTube;
+
+import org.junit.Before;
+import org.junit.Test;
 
 public class StartupTest {
 

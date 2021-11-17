@@ -17,7 +17,7 @@ public class TestCases {
     Gameplay game;
     
     /**
-     * 
+     * Tests the flow of gameplay.
      */
     @Test
     public void gameStartTest() {
