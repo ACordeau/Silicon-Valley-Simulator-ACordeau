@@ -1,11 +1,11 @@
-package main.java.TechGiants;
+package main.java.techgiants;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import main.java.Startups.Startup;
-import main.java.Startups.StartupFactory;
+import main.java.startups.Startup;
+import main.java.startups.StartupFactory;
 
 public class TechGiant {
 

@@ -1,7 +1,4 @@
-package main.java.Startups;
-
-import java.util.List;
-import java.util.Random;
+package main.java.startups;
 
 public class Startup {
 

@@ -1,9 +1,9 @@
-package main.java.Quarters;
+package main.java.quarters;
 
 import java.util.Random;
 
-import main.java.Gameplay.Gameplay;
-import main.java.TechGiants.TechGiant;
+import main.java.gameplay.Gameplay;
+import main.java.techgiants.TechGiant;
 
 public class Quarter2 implements Quarters {
 
@@ -13,6 +13,10 @@ public class Quarter2 implements Quarters {
     private TechGiant tg2 = null;
     private static final double PERCENTAGE_CUT = .5;
 
+    /**
+     * Default constructor.
+     * @param newGame current game.
+     */
     public Quarter2(Gameplay newGame) {
 
         game = newGame;
@@ -96,8 +100,8 @@ public class Quarter2 implements Quarters {
             if (startupType.equals(this.type)) {
                 lostHp = (int) (startHp * PERCENTAGE_CUT);
                 tg.getStartups().get(i).setCurrentHealth(lostHp);
-                System.out.println(tg.getStartups().get(i).getName() + " " +
-                tg.getStartups().get(i).getCurrentHealth());
+                System.out.println(tg.getStartups().get(i).getName() 
+                        + " " + tg.getStartups().get(i).getCurrentHealth());
             }
         }
 
@@ -113,8 +117,8 @@ public class Quarter2 implements Quarters {
             if (startupType.equals(this.type)) {
                 gainHp = (int) (startHp * .5);
                 tg.getStartups().get(i).setCurrentHealth(currentHp + gainHp);
-                System.out.println(tg.getStartups().get(i).getName() + " " +
-                tg.getStartups().get(i).getCurrentHealth());
+                System.out.println(tg.getStartups().get(i).getName() 
+                        + " " + tg.getStartups().get(i).getCurrentHealth());
             }
         }
 

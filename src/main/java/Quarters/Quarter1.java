@@ -1,11 +1,15 @@
-package main.java.Quarters;
+package main.java.quarters;
 
-import main.java.Gameplay.Gameplay;
+import main.java.gameplay.Gameplay;
 
 public class Quarter1 implements Quarters {
 
     private Gameplay game;
     
+    /**
+     * Default constructor.
+     * @param newGame current game.
+     */
     public Quarter1(Gameplay newGame) {
 
         game = newGame;

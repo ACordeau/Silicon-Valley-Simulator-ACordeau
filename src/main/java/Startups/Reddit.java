@@ -1,4 +1,4 @@
-package main.java.Startups;
+package main.java.startups;
 
 public class Reddit extends Startup {
 

@@ -1,14 +1,14 @@
-package main.java.Gameplay;
+package main.java.gameplay;
 
 import java.util.Random;
 
-import main.java.Quarters.Quarter1;
-import main.java.Quarters.Quarter2;
-import main.java.Quarters.Quarter3;
-import main.java.Quarters.Quarter4;
-import main.java.Quarters.Quarters;
-import main.java.TechGiants.TechGiant;
-import main.java.TechGiants.TechGiantFactory;
+import main.java.quarters.Quarter1;
+import main.java.quarters.Quarter2;
+import main.java.quarters.Quarter3;
+import main.java.quarters.Quarter4;
+import main.java.quarters.Quarters;
+import main.java.techgiants.TechGiant;
+import main.java.techgiants.TechGiantFactory;
 
 public class Gameplay {
 
@@ -94,6 +94,13 @@ public class Gameplay {
         return random;
     }
 
+    /**
+     * Decides if the game is over or not based on
+     * current Tech Giant money and number of Startups.
+     * @param tg1 TechGiant 1
+     * @param tg2 TechGiant 2
+     * @return boolean true or false based on result
+     */
     public static boolean gameOver(TechGiant tg1, TechGiant tg2) {
 
         if (tg1.getMoney() <= 0 || tg2.getMoney() <= 0) {
@@ -108,6 +115,10 @@ public class Gameplay {
 
     }
 
+    /**
+     * Sets the new State of gameplay.
+     * @param newQuarter
+     */
     public void setQuarterState(Quarters newQuarter) {
 
         currentQ = newQuarter;

@@ -1,6 +1,6 @@
-package main.java.Quarters;
+package main.java.quarters;
 
-import main.java.Gameplay.Gameplay;
+import main.java.gameplay.Gameplay;
 
 public class Quarter4 implements Quarters{
     
