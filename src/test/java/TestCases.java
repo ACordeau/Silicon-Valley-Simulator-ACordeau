@@ -13,14 +13,14 @@ public class TestCases {
     public void setUp() throws Exception {
     }
     
-//    /**
-//     * 
-//     */
-//    @Test
-//    public void gameStartTest() {
-//        
-//        assertTrue(Main.start());
-//        
-//    }
+    /**
+     * 
+     */
+    //@Test
+    //public void gameStartTest() {
+    //    
+    //    assertTrue(Main.start());
+    //    
+    //}
 
 }

@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
-
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
 import main.java.techgiants.PandaSuplex;
@@ -14,6 +12,8 @@ import main.java.techgiants.Reader;
 import main.java.techgiants.SoundByte;
 import main.java.techgiants.TechGiant;
 import main.java.techgiants.TechGiantFactory;
+
+import org.junit.Test;
 
 public class TechGiantTest {
     
