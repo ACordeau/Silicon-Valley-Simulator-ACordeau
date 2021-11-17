@@ -1,4 +1,4 @@
-package main.java.svalley;
+package main.java.Startups;
 
 public class TikTok extends Startup {
 

@@ -1,15 +1,15 @@
-package main.java.svalley;
+package main.java.Startups;
 
-public class Snapchat extends Startup {
+public class Reddit extends Startup {
 
-    Snapchat() {
+    Reddit() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("IMAGE SHARING");
+        setType("SOCIAL MEDIA");
         setExp(0);
-        setName("Snapchat");
+        setName("Reddit");
         setLevel(1);
     }
 

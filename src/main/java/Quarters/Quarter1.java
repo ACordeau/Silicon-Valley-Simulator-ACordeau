@@ -1,4 +1,6 @@
-package main.java.svalley;
+package main.java.Quarters;
+
+import main.java.Gameplay.Gameplay;
 
 public class Quarter1 implements Quarters {
 

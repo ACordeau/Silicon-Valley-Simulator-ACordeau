@@ -1,8 +1,11 @@
-package main.java.svalley;
+package main.java.TechGiants;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import main.java.Startups.Startup;
+import main.java.Startups.StartupFactory;
 
 public class TechGiant {
 

@@ -6,14 +6,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import main.java.svalley.PandaSuplex;
-import main.java.svalley.Polygon;
-import main.java.svalley.Reader;
-import main.java.svalley.SoundByte;
-import main.java.svalley.Startup;
-import main.java.svalley.StartupFactory;
-import main.java.svalley.TechGiant;
-import main.java.svalley.TechGiantFactory;
+import main.java.Startups.Startup;
+import main.java.Startups.StartupFactory;
+import main.java.TechGiants.PandaSuplex;
+import main.java.TechGiants.Polygon;
+import main.java.TechGiants.Reader;
+import main.java.TechGiants.SoundByte;
+import main.java.TechGiants.TechGiant;
+import main.java.TechGiants.TechGiantFactory;
 
 public class TechGiantTest {
     

@@ -1,15 +1,15 @@
-package main.java.svalley;
+package main.java.Startups;
 
-public class Vimeo extends Startup {
+public class YouTube extends Startup {
 
-    Vimeo() {
+    YouTube() {
         setHealth(10);
         setCurrentHealth(this.getHealth());
         setAttack(2);
         setDefense(1);
         setType("VIDEO SHARING");
         setExp(0);
-        setName("Vimeo");
+        setName("YouTube");
         setLevel(1);
     }
 

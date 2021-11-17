@@ -1,15 +1,15 @@
-package main.java.svalley;
+package main.java.Startups;
 
-public class YouTube extends Startup {
+public class Twitter extends Startup {
 
-    YouTube() {
+    Twitter() {
         setHealth(10);
         setCurrentHealth(this.getHealth());
         setAttack(2);
         setDefense(1);
-        setType("VIDEO SHARING");
+        setType("SOCIAL MEDIA");
         setExp(0);
-        setName("YouTube");
+        setName("Twitter");
         setLevel(1);
     }
 

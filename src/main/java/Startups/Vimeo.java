@@ -1,15 +1,15 @@
-package main.java.svalley;
+package main.java.Startups;
 
-public class Twitter extends Startup {
+public class Vimeo extends Startup {
 
-    Twitter() {
+    Vimeo() {
         setHealth(10);
         setCurrentHealth(this.getHealth());
         setAttack(2);
         setDefense(1);
-        setType("SOCIAL MEDIA");
+        setType("VIDEO SHARING");
         setExp(0);
-        setName("Twitter");
+        setName("Vimeo");
         setLevel(1);
     }
 

@@ -1,10 +1,12 @@
-package main.java.svalley;
+package main.java.Quarters;
 
-public class Quarter4 implements Quarters{
-    
+import main.java.Gameplay.Gameplay;
+
+public class Quarter3 implements Quarters {
+
     Gameplay game;
 
-    public Quarter4(Gameplay newGame) {
+    public Quarter3(Gameplay newGame) {
 
         game = newGame;
 
@@ -24,14 +26,14 @@ public class Quarter4 implements Quarters{
 
     @Override
     public void setQuarter3() {
-        System.out.println("Error Message");
+        System.out.println("\nStarting Quarter 3");
+        game.setQuarterState(game.getQuarter3());
 
     }
 
     @Override
     public void setQuarter4() {
-        System.out.println("\nStarting Quarter 4");
-        game.setQuarterState(game.getQuarter4());
+        System.out.println("Error Message");
 
     }
 

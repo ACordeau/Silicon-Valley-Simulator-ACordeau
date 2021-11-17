@@ -1,15 +1,15 @@
-package main.java.svalley;
+package main.java.Startups;
 
-public class Instagram extends Startup {
+public class Bing extends Startup {
 
-    Instagram() {
+    Bing() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("IMAGE SHARING");
+        setType("BROWSER");
         setExp(0);
-        setName("Instagram");
+        setName("Bing");
         setLevel(1);
     }
 
