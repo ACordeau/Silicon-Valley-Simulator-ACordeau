@@ -48,11 +48,12 @@ public class Gameplay {
                 currentQ = q1;
                 currentQ.setQuarter1();
                 count++;
-                currentQ.undo();
+                currentQ.endQuarter();
             } else if (currentQ instanceof Quarter1) {
                 currentQ = q2;
                 currentQ.setQuarter2();
                 count++;
+                currentQ.endQuarter();
             } else if (currentQ instanceof Quarter2) {
                 currentQ = q3;
                 currentQ.setQuarter3();
