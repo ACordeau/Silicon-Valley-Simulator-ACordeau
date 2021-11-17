@@ -3,21 +3,21 @@ package test.java;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import main.java.startups.Bing;
-import main.java.startups.Facebook;
-import main.java.startups.Google;
-import main.java.startups.Instagram;
-import main.java.startups.Reddit;
-import main.java.startups.Snapchat;
-import main.java.startups.Startup;
-import main.java.startups.StartupFactory;
-import main.java.startups.TikTok;
-import main.java.startups.Twitter;
-import main.java.startups.Vimeo;
-import main.java.startups.YouTube;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import main.java.Startups.Bing;
+import main.java.Startups.Facebook;
+import main.java.Startups.Google;
+import main.java.Startups.Instagram;
+import main.java.Startups.Reddit;
+import main.java.Startups.Snapchat;
+import main.java.Startups.Startup;
+import main.java.Startups.StartupFactory;
+import main.java.Startups.TikTok;
+import main.java.Startups.Twitter;
+import main.java.Startups.Vimeo;
+import main.java.Startups.YouTube;
 
 public class StartupTest {
 

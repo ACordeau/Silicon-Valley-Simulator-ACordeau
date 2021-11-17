@@ -1,6 +1,6 @@
 package main.java.svalley;
 
-import main.java.gameplay.Gameplay;
+import main.java.Gameplay.Gameplay;
 
 public class Main {
 

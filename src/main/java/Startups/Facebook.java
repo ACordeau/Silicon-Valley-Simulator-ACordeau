@@ -1,4 +1,4 @@
-package main.java.startups;
+package main.java.Startups;
 
 public class Facebook extends Startup {
 

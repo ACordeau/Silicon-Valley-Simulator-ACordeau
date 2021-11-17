@@ -1,4 +1,4 @@
-package main.java.techgiants;
+package main.java.TechGiants;
 
 public class SoundByte extends TechGiant {
 
