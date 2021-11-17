@@ -11,7 +11,7 @@ public class Quarter2 implements Quarters {
     String type;
     private TechGiant tg1 = null;
     private TechGiant tg2 = null;
-    private static final double PERCENTAGE_CUT = .5;
+    private static final double PERCENTAGE_CUT = .1;
 
     /**
      * Default constructor.
@@ -33,7 +33,7 @@ public class Quarter2 implements Quarters {
     public void setQuarter2() {
         this.type = randomType();
         System.out.println("\nStarting Quarter 2: Market Crash");
-        System.out.println("STARTUPS OF TYPE " + type + " LOSE 50% OF THEIR "
+        System.out.println("STARTUPS OF TYPE " + type + " LOSE 10% OF THEIR "
                 + "MAX REVENUE!");
         game.setQuarterState(game.getQuarter2());
 
@@ -102,16 +102,16 @@ public class Quarter2 implements Quarters {
             startupType = tg.getStartups().get(i).getType();
 
             if (startupType.equals(this.type)) {
-                lostHp = (int) (startHp * PERCENTAGE_CUT);
+                lostHp = (int) (startHp - (startHp * PERCENTAGE_CUT));
                 
                 if (currentHp < lostHp) {
                     tg.getStartups().get(i).setCurrentHealth(1);
                 } else {
-                    tg.getStartups().get(i).setCurrentHealth(currentHp - lostHp);
+                    tg.getStartups().get(i).setCurrentHealth(lostHp);
                 }
                 
-                System.out.println(tg.getStartups().get(i).getName() 
-                        + " " + tg.getStartups().get(i).getCurrentHealth());
+                //System.out.println(tg.getStartups().get(i).getName() 
+                //        + " " + tg.getStartups().get(i).getCurrentHealth());
             }
         }
 
@@ -126,14 +126,14 @@ public class Quarter2 implements Quarters {
             startupType = tg.getStartups().get(i).getType();
 
             if (startupType.equals(this.type)) {
-                gainHp = (int) (startHp * PERCENTAGE_CUT);
+                gainHp = (int) (startHp - (startHp * PERCENTAGE_CUT));
                 if ((currentHp + gainHp) > startHp) {
                     tg.getStartups().get(i).setCurrentHealth(startHp);
                 } else {
                     tg.getStartups().get(i).setCurrentHealth(currentHp + gainHp);
                 }
-                System.out.println(tg.getStartups().get(i).getName() 
-                        + " " + tg.getStartups().get(i).getCurrentHealth());
+                //System.out.println(tg.getStartups().get(i).getName() 
+                //        + " " + tg.getStartups().get(i).getCurrentHealth());
             }
         }
 

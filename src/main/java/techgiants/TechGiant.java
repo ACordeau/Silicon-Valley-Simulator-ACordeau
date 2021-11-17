@@ -10,6 +10,7 @@ import main.java.startups.StartupFactory;
 public class TechGiant {
 
     private static final int MAX_STARTUPS = 6;
+    private boolean extraCut;
     private int money;
     private List<Startup> startups = new LinkedList<>();
     private String name;
@@ -37,6 +38,14 @@ public class TechGiant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isExtraCut() {
+        return extraCut;
+    }
+
+    public void setIsExtraCut(boolean extraCut) {
+        this.extraCut = extraCut;
     }
 
     /**

@@ -66,14 +66,17 @@ public class Gameplay {
                 currentQ = q3;
                 currentQ.setQuarter3();
                 count++;
+                currentQ.endQuarter();
             } else if (currentQ instanceof Quarter3) {
                 currentQ = q4;
                 currentQ.setQuarter4();
                 count++;
+                currentQ.endQuarter();
             } else {
                 currentQ = q1;
                 currentQ.setQuarter1();
                 count++;
+                currentQ.endQuarter();
             }
 
         } while (count != 4/*!gameOver(tg1, tg2)*/);

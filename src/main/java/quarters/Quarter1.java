@@ -19,6 +19,8 @@ public class Quarter1 implements Quarters {
     @Override
     public void setQuarter1() {
         System.out.println("\nStarting Quarter 1");
+        System.out.println("THIS IS A NEUTRAL QUARTER WHERE ALL STARTUPS"
+                + " CAN THRIVE EQUALLY.");
         game.setQuarterState(game.getQuarter1());
 
 
@@ -44,7 +46,7 @@ public class Quarter1 implements Quarters {
 
     @Override
     public void endQuarter() {
-        
+        System.out.println("\nEnding Quarter 1");
     }
 
 }
