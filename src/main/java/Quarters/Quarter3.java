@@ -6,6 +6,10 @@ public class Quarter3 implements Quarters {
 
     Gameplay game;
 
+    /**
+     * Default constructor.
+     * @param newGame current game.
+     */
     public Quarter3(Gameplay newGame) {
 
         game = newGame;

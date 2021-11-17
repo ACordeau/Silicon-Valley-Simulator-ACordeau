@@ -117,7 +117,7 @@ public class Gameplay {
 
     /**
      * Sets the new State of gameplay.
-     * @param newQuarter
+     * @param newQuarter quarter.
      */
     public void setQuarterState(Quarters newQuarter) {
 

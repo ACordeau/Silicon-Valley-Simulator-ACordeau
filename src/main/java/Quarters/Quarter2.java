@@ -107,7 +107,8 @@ public class Quarter2 implements Quarters {
 
     }
 
-    private void regainCuts(TechGiant tg, int startHp, int currentHp, int gainHp, String startupType) {
+    private void regainCuts(TechGiant tg, int startHp, 
+            int currentHp, int gainHp, String startupType) {
 
         for (int i = 0; i < tg.getStartups().size(); i++) {
             startHp = tg.getStartups().get(i).getHealth();

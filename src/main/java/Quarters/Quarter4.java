@@ -2,10 +2,15 @@ package main.java.quarters;
 
 import main.java.gameplay.Gameplay;
 
-public class Quarter4 implements Quarters{
-    
+public class Quarter4 implements Quarters {
+
     Gameplay game;
 
+    /**
+     * Default constructor.
+     * 
+     * @param newGame current game.
+     */
     public Quarter4(Gameplay newGame) {
 
         game = newGame;
@@ -40,7 +45,7 @@ public class Quarter4 implements Quarters{
     @Override
     public void endQuarter() {
         // TODO Auto-generated method stub
-        
+
     }
 
 }
