@@ -33,16 +33,18 @@ public class Quarter2 implements Quarters {
     public void setQuarter2() {
         this.type = randomType();
         System.out.println("\nStarting Quarter 2: Market Crash");
-        System.out.println("STARTUPS OF TYPE " + type + " LOSE 50% REVENUE!");
+        System.out.println("STARTUPS OF TYPE " + type + " LOSE 50% OF THEIR "
+                + "MAX REVENUE!");
         game.setQuarterState(game.getQuarter2());
 
         setTechGiants();
         int lostHp = 0;
         int startHp = 0;
+        int currentHp = 0;
         String startupType = "";
 
-        executeCuts(tg1, startHp, lostHp, startupType);
-        executeCuts(tg2, startHp, lostHp, startupType);
+        executeCuts(tg1, startHp, currentHp, lostHp, startupType);
+        executeCuts(tg2, startHp, currentHp, lostHp, startupType);
 
     }
 
@@ -90,16 +92,24 @@ public class Quarter2 implements Quarters {
         tg2 = game.getTechGiant2();
     }
 
-    private void executeCuts(TechGiant tg, int startHp, int lostHp, String startupType) {
+    private void executeCuts(TechGiant tg, int startHp, 
+            int currentHp, int lostHp, String startupType) {
 
         for (int i = 0; i < tg.getStartups().size(); i++) {
 
             startHp = tg.getStartups().get(i).getHealth();
+            currentHp = tg.getStartups().get(i).getCurrentHealth();
             startupType = tg.getStartups().get(i).getType();
 
             if (startupType.equals(this.type)) {
                 lostHp = (int) (startHp * PERCENTAGE_CUT);
-                tg.getStartups().get(i).setCurrentHealth(lostHp);
+                
+                if (currentHp < lostHp) {
+                    tg.getStartups().get(i).setCurrentHealth(1);
+                } else {
+                    tg.getStartups().get(i).setCurrentHealth(currentHp - lostHp);
+                }
+                
                 System.out.println(tg.getStartups().get(i).getName() 
                         + " " + tg.getStartups().get(i).getCurrentHealth());
             }
@@ -116,8 +126,12 @@ public class Quarter2 implements Quarters {
             startupType = tg.getStartups().get(i).getType();
 
             if (startupType.equals(this.type)) {
-                gainHp = (int) (startHp * .5);
-                tg.getStartups().get(i).setCurrentHealth(currentHp + gainHp);
+                gainHp = (int) (startHp * PERCENTAGE_CUT);
+                if ((currentHp + gainHp) > startHp) {
+                    tg.getStartups().get(i).setCurrentHealth(startHp);
+                } else {
+                    tg.getStartups().get(i).setCurrentHealth(currentHp + gainHp);
+                }
                 System.out.println(tg.getStartups().get(i).getName() 
                         + " " + tg.getStartups().get(i).getCurrentHealth());
             }
