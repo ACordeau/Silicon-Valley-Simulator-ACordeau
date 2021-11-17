@@ -1,14 +1,14 @@
-package main.java.Gameplay;
+package main.java.gameplay;
 
 import java.util.Random;
 
-import main.java.Quarters.Quarter1;
-import main.java.Quarters.Quarter2;
-import main.java.Quarters.Quarter3;
-import main.java.Quarters.Quarter4;
-import main.java.Quarters.Quarters;
-import main.java.TechGiants.TechGiant;
-import main.java.TechGiants.TechGiantFactory;
+import main.java.quarters.Quarter1;
+import main.java.quarters.Quarter2;
+import main.java.quarters.Quarter3;
+import main.java.quarters.Quarter4;
+import main.java.quarters.Quarters;
+import main.java.techgiants.TechGiant;
+import main.java.techgiants.TechGiantFactory;
 
 public class Gameplay {
 

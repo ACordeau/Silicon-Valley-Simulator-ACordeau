@@ -1,4 +1,4 @@
-package main.java.Quarters;
+package main.java.quarters;
 
 public interface Quarters {
     

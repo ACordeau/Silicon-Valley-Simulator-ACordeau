@@ -1,15 +1,15 @@
-package main.java.Startups;
+package main.java.startups;
 
-public class Facebook extends Startup {
+public class Snapchat extends Startup {
 
-    Facebook() {
+    Snapchat() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("SOCIAL MEDIA");
+        setType("IMAGE SHARING");
         setExp(0);
-        setName("Facebook");
+        setName("Snapchat");
         setLevel(1);
     }
 

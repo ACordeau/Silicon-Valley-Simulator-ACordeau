@@ -2,7 +2,7 @@ package test.java;
 
 import static org.junit.Assert.assertTrue;
 
-import main.java.Gameplay.Gameplay;
+import main.java.gameplay.Gameplay;
 import main.java.svalley.Main;
 
 import org.junit.Before;

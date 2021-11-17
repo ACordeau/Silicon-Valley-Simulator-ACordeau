@@ -1,9 +1,9 @@
-package main.java.Quarters;
+package main.java.quarters;
 
 import java.util.Random;
 
-import main.java.Gameplay.Gameplay;
-import main.java.TechGiants.TechGiant;
+import main.java.gameplay.Gameplay;
+import main.java.techgiants.TechGiant;
 
 public class Quarter2 implements Quarters {
 

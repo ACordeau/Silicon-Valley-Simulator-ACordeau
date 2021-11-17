@@ -1,4 +1,4 @@
-package main.java.TechGiants;
+package main.java.techgiants;
 
 public class Polygon extends TechGiant {
 

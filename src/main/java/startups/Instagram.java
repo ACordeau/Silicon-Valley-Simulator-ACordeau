@@ -1,15 +1,15 @@
-package main.java.Startups;
+package main.java.startups;
 
-public class Bing extends Startup {
+public class Instagram extends Startup {
 
-    Bing() {
+    Instagram() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("BROWSER");
+        setType("IMAGE SHARING");
         setExp(0);
-        setName("Bing");
+        setName("Instagram");
         setLevel(1);
     }
 

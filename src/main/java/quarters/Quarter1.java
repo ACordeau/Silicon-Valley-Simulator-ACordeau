@@ -1,17 +1,16 @@
-package main.java.Quarters;
+package main.java.quarters;
 
-import main.java.Gameplay.Gameplay;
+import main.java.gameplay.Gameplay;
 
-public class Quarter4 implements Quarters {
+public class Quarter1 implements Quarters {
 
-    Gameplay game;
-
+    private Gameplay game;
+    
     /**
      * Default constructor.
-     * 
      * @param newGame current game.
      */
-    public Quarter4(Gameplay newGame) {
+    public Quarter1(Gameplay newGame) {
 
         game = newGame;
 
@@ -19,7 +18,9 @@ public class Quarter4 implements Quarters {
 
     @Override
     public void setQuarter1() {
-        System.out.println("Error Message");
+        System.out.println("\nStarting Quarter 1");
+        game.setQuarterState(game.getQuarter1());
+
 
     }
 
@@ -37,15 +38,13 @@ public class Quarter4 implements Quarters {
 
     @Override
     public void setQuarter4() {
-        System.out.println("\nStarting Quarter 4");
-        game.setQuarterState(game.getQuarter4());
+        System.out.println("Error Message");
 
     }
 
     @Override
     public void endQuarter() {
-        // TODO Auto-generated method stub
-
+        
     }
 
 }

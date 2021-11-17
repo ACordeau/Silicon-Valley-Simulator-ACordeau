@@ -1,15 +1,15 @@
-package main.java.Startups;
+package main.java.startups;
 
-public class Snapchat extends Startup {
+public class Bing extends Startup {
 
-    Snapchat() {
+    Bing() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("IMAGE SHARING");
+        setType("BROWSER");
         setExp(0);
-        setName("Snapchat");
+        setName("Bing");
         setLevel(1);
     }
 

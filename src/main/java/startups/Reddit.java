@@ -1,15 +1,15 @@
-package main.java.Startups;
+package main.java.startups;
 
-public class TikTok extends Startup {
+public class Reddit extends Startup {
 
-    TikTok() {
+    Reddit() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("VIDEO SHARING");
+        setType("SOCIAL MEDIA");
         setExp(0);
-        setName("TikTok");
+        setName("Reddit");
         setLevel(1);
     }
 

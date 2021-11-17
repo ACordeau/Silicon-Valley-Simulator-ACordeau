@@ -1,15 +1,15 @@
-package main.java.Startups;
+package main.java.startups;
 
-public class Instagram extends Startup {
+public class Facebook extends Startup {
 
-    Instagram() {
+    Facebook() {
         setHealth(10);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
-        setType("IMAGE SHARING");
+        setType("SOCIAL MEDIA");
         setExp(0);
-        setName("Instagram");
+        setName("Facebook");
         setLevel(1);
     }
 
