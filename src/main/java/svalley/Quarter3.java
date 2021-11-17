@@ -36,7 +36,7 @@ public class Quarter3 implements Quarters {
     }
 
     @Override
-    public void undo() {
+    public void endQuarter() {
         // TODO Auto-generated method stub
         
     }

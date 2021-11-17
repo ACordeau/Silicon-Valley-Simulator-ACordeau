@@ -10,6 +10,6 @@ public interface Quarters {
     
     public void setQuarter4();
     
-    public void undo();
+    public void endQuarter();
 
 }
