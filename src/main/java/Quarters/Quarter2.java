@@ -35,10 +35,10 @@ public class Quarter2 implements Quarters {
         setTechGiants();
         int lostHp = 0;
         int startHp = 0;
-        String type = "";
+        String startupType = "";
 
-        executeCuts(tg1, startHp, lostHp, type);
-        executeCuts(tg2, startHp, lostHp, type);
+        executeCuts(tg1, startHp, lostHp, startupType);
+        executeCuts(tg2, startHp, lostHp, startupType);
 
     }
 
@@ -64,10 +64,10 @@ public class Quarter2 implements Quarters {
         int gainHp = 0;
         int startHp = 0;
         int currentHp = 0;
-        String type = "";
+        String startupType = "";
 
-        regainCuts(tg1, startHp, currentHp, gainHp, type);
-        regainCuts(tg2, startHp, currentHp, gainHp, type);
+        regainCuts(tg1, startHp, currentHp, gainHp, startupType);
+        regainCuts(tg2, startHp, currentHp, gainHp, startupType);
 
     }
 
@@ -86,35 +86,35 @@ public class Quarter2 implements Quarters {
         tg2 = game.getTechGiant2();
     }
 
-    private void executeCuts(TechGiant tg, int startHp, int lostHp, String type) {
+    private void executeCuts(TechGiant tg, int startHp, int lostHp, String startupType) {
 
         for (int i = 0; i < tg.getStartups().size(); i++) {
 
             startHp = tg.getStartups().get(i).getHealth();
-            type = tg.getStartups().get(i).getType();
+            startupType = tg.getStartups().get(i).getType();
 
-            if (type.equals(this.type)) {
+            if (startupType.equals(this.type)) {
                 lostHp = (int) (startHp * PERCENTAGE_CUT);
                 tg.getStartups().get(i).setCurrentHealth(lostHp);
-                // System.out.println(tg.getStartups().get(i).getName() + " " +
-                // tg.getStartups().get(i).getCurrentHealth());
+                System.out.println(tg.getStartups().get(i).getName() + " " +
+                tg.getStartups().get(i).getCurrentHealth());
             }
         }
 
     }
 
-    private void regainCuts(TechGiant tg, int startHp, int currentHp, int gainHp, String type) {
+    private void regainCuts(TechGiant tg, int startHp, int currentHp, int gainHp, String startupType) {
 
         for (int i = 0; i < tg.getStartups().size(); i++) {
             startHp = tg.getStartups().get(i).getHealth();
             currentHp = tg.getStartups().get(i).getCurrentHealth();
-            type = tg.getStartups().get(i).getType();
+            startupType = tg.getStartups().get(i).getType();
 
-            if (type.equals(this.type)) {
+            if (startupType.equals(this.type)) {
                 gainHp = (int) (startHp * .5);
                 tg.getStartups().get(i).setCurrentHealth(currentHp + gainHp);
-                // System.out.println(tg.getStartups().get(i).getName() + " " +
-                // tg.getStartups().get(i).getCurrentHealth());
+                System.out.println(tg.getStartups().get(i).getName() + " " +
+                tg.getStartups().get(i).getCurrentHealth());
             }
         }
 
