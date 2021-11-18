@@ -7,6 +7,7 @@ import main.java.quarters.Quarter2;
 import main.java.quarters.Quarter3;
 import main.java.quarters.Quarter4;
 import main.java.quarters.Quarters;
+import main.java.startups.Startup;
 import main.java.techgiants.TechGiant;
 import main.java.techgiants.TechGiantFactory;
 
@@ -49,39 +50,105 @@ public class Gameplay {
         q3 = new Quarter3(this);
         q4 = new Quarter4(this);
 
-        int count = 0;
+        
 
         do {
             if (currentQ == null) {
                 currentQ = q1;
                 currentQ.setQuarter1();
-                count++;
+                offQuarterEvents(tg1);
+                offQuarterEvents(tg1);
                 currentQ.endQuarter();
             } else if (currentQ instanceof Quarter1) {
                 currentQ = q2;
                 currentQ.setQuarter2();
-                count++;
+                boolean battleFlag = true;
+                do {
+                    battleFlag = battle(tg1, tg2);
+                    battleFlag = battle(tg2, tg1);
+                } while (battleFlag == true);
+                
+                takeover(tg1, tg2);
+                
                 currentQ.endQuarter();
             } else if (currentQ instanceof Quarter2) {
                 currentQ = q3;
                 currentQ.setQuarter3();
-                count++;
+                
                 currentQ.endQuarter();
             } else if (currentQ instanceof Quarter3) {
                 currentQ = q4;
                 currentQ.setQuarter4();
-                count++;
+                
                 currentQ.endQuarter();
             } else {
                 currentQ = q1;
                 currentQ.setQuarter1();
-                count++;
+                
                 currentQ.endQuarter();
             }
 
-        } while (count != 4/*!gameOver(tg1, tg2)*/);
+        } while (!gameOver(tg1, tg2));
 
         return true;
+    }
+    
+    /**
+     * Entry point where battle takes place
+     * @param enemy Tech giant to fight.
+     * @return boolean for success or failure.
+     */
+    public boolean battle(TechGiant tg1, TechGiant tg2) {
+        
+        Startup startupOne = tg1.getStartups().get(0);
+        Startup startupTwo = tg2.getStartups().get(0);
+        
+        if (startupOne.getCurrentHealth() == 0 || startupTwo.getCurrentHealth() == 0) {
+            return false;
+        }
+
+        int attack = startupOne.getAttack() + startupOne.randomDamage();
+
+        int defend = startupTwo.getDefense();
+
+        int inflicted = attack - defend;
+
+        
+        if ((startupTwo.getCurrentHealth() - inflicted) <= 0) {
+            startupTwo.setCurrentHealth(0);
+        } else {
+            startupTwo.setCurrentHealth(startupTwo.getCurrentHealth() - inflicted);
+        }
+        System.out.println("\n" + tg2.getName() + "'s " + startupTwo.getName() + " loses "
+                + inflicted + "M dollars and has "
+                + startupTwo.getCurrentHealth() + "M left!");
+
+        if (startupTwo.getCurrentHealth() == 0) {
+            System.out.println("\n" + tg2.getName() + "'s " + startupTwo.getName() + " has gone bankrupt! \n"
+                    + tg1.getName() + " wins this corporate battle!");
+            
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public Startup takeover(TechGiant tg1, TechGiant tg2) {
+        Startup startupOne = tg1.getStartups().get(0);
+        Startup startupTwo = tg2.getStartups().get(0);
+        
+        if (startupOne.getCurrentHealth() == 0) {
+            startupOne.setCurrentHealth(startupOne.getHealth());
+            tg2.addStartup(tg1.removeStartup(0));
+            tg2.gainMoney(tg1.loseMoney(tg2));
+            return startupOne;
+        } else {
+            startupTwo.setCurrentHealth(startupTwo.getHealth());
+            tg1.addStartup(tg2.removeStartup(0));
+            tg1.gainMoney(tg2.loseMoney(tg1));
+            return startupTwo;
+        }
+        
     }
 
     /**
@@ -106,16 +173,31 @@ public class Gameplay {
      */
     public static boolean gameOver(TechGiant tg1, TechGiant tg2) {
 
-        if (tg1.getMoney() <= 0 || tg2.getMoney() <= 0) {
-            //determineWinner();
+        if (tg1.getMoney() <= 0 || tg1.getStartups().size() == 0) {
+            System.out.println("\n" + tg1.getName() + " has completely left the market!");
+            System.out.println(tg2.getName() + " has achieved corporate supremacy!");
             return true;
-        } else if (tg1.getStartups().size() == 0 || tg2.getStartups().size() == 0) {
-            //determineWinner();
+        } else if (tg2.getMoney() <= 0 || tg2.getStartups().size() == 0) {
+            System.out.println("\n" + tg2.getName() + " has completely left the market!");
+            System.out.println(tg1.getName() + " has achieved corporate supremacy!");
             return true;
         } else {
             return false;
         }
 
+    }
+    
+    public boolean offQuarterEvents(TechGiant tg) {
+        
+        //increaseStartupDef(tg);
+        
+        //startupBattle(tg);
+        
+        //evolution(tg);
+        
+        //itemShop(tg);
+        
+        return true;
     }
 
     /**
@@ -126,22 +208,6 @@ public class Gameplay {
 
         currentQ = newQuarter;
 
-    }
-
-    public void setQuarter1() {
-        currentQ.setQuarter1();
-    }
-
-    public void setQuarter2() {
-        currentQ.setQuarter2();
-    }
-
-    public void setQuarter3() {
-        currentQ.setQuarter3();
-    }
-
-    public void setQuarter4() {
-        currentQ.setQuarter4();
     }
 
     public Quarters getQuarter1() {

@@ -3,7 +3,7 @@ package main.java.startups;
 public class Vimeo extends Startup {
 
     Vimeo() {
-        setHealth(10);
+        setHealth(50);
         setCurrentHealth(this.getHealth());
         setAttack(2);
         setDefense(1);

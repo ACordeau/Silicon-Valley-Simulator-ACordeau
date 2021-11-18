@@ -1,5 +1,7 @@
 package main.java.startups;
 
+import java.util.Random;
+
 public class Startup {
 
     private static final int MAX_LEVEL = 15;
@@ -86,6 +88,12 @@ public class Startup {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+    
+    public int randomDamage() {
+        Random rand = new Random();
+        int random = rand.nextInt(attack * 3) + level;
+        return random;
     }
     
     /*

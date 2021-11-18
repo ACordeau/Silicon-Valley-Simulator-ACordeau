@@ -3,7 +3,7 @@ package main.java.startups;
 public class Instagram extends Startup {
 
     Instagram() {
-        setHealth(10);
+        setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);
         setDefense(1);
