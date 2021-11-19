@@ -73,7 +73,7 @@ public class TechGiantTest {
 
     /**
      * Tests to ensure that tech giants cannot have more than six startups at a
-     * time.
+     * time
      */
     @Test
     public void techGiantSevenStartups() {

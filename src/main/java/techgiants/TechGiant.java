@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import main.java.items.StimulusBoost;
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
 
@@ -15,6 +16,7 @@ public class TechGiant {
     private int money;
     private List<Startup> startups = new LinkedList<>();
     private List<Startup> extraStartups = new LinkedList<>();
+    private List<StimulusBoost> items = new LinkedList<>();
     private String name;
     private String type;
 
@@ -81,7 +83,7 @@ public class TechGiant {
         } else if (isFull()) {
             extraStartups.add(startup);
             System.out.println("The market is full, " + startup.getName() + " was sent to market training camp!");
-            return true;
+            return false;
         } else {
             return false;
         }
@@ -114,6 +116,19 @@ public class TechGiant {
     public List<Startup> getStartups() {
         return startups;
     }
+    
+    public List<StimulusBoost> getItems() {
+        return items;
+    }
+    
+    public boolean addItem(StimulusBoost item) {
+        if (item == null) {
+            return false;
+        }
+        
+        items.add(item);
+        return true;
+    }
 
     /**
      * Tells us if the Tech Giant has 6 startups already.
@@ -122,8 +137,6 @@ public class TechGiant {
      */
     public boolean isFull() {
         if (startups.size() >= MAX_STARTUPS) {
-            System.out.println(
-                    "Oh no, you already have six startups and can't bear the financial load of any more!");
             return true;
         } else {
             return false;
@@ -140,6 +153,13 @@ public class TechGiant {
     
     public void gainMoney(int newMoney) {
         setMoney(getMoney() + newMoney);
+    }
+    
+    public int loseMoney(Startup temp) {
+        Random rand = new Random();
+        int random = rand.nextInt(temp.getCurrentHealth()) + 10;
+        System.out.println("\n" + this.getName() + " loses " + random + "M dollars to " + temp.getName());
+        return random;
     }
     
     public int loseMoney(TechGiant tg) {

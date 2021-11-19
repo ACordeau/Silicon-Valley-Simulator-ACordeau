@@ -96,6 +96,60 @@ public class Startup {
         return random;
     }
     
+    public boolean levelUp() {
+        if (getLevel() == MAX_LEVEL) {
+            System.out.println("Max Startup level already reached!");
+            return false;
+        }
+        
+        Random rand = new Random();
+        int random;
+        
+        System.out.println(this.getName() + " has gained a rank!");
+        
+        setLevel(getLevel() + 1);
+        System.out.println("Rank: " + getLevel());
+        
+        random = rand.nextInt(35) + 1;
+        setHealth((int)((getHealth() + (getHealth() * .75) + random)));
+        System.out.println("Revenue: " + getHealth());
+        
+        setCurrentHealth(getHealth());
+        System.out.println("Current revenue raises to total revenue!");
+        
+        random = rand.nextInt(5 + getLevel()) + 1;
+        setAttack(getAttack() + random);
+        System.out.println("Net income: " + getAttack());
+        
+        random = rand.nextInt(5 + getLevel()) + 1;
+        setDefense(getDefense() + 3);
+        System.out.println("Market share: " + getDefense());
+        return true;
+        
+    }
+    
+    public boolean encounterLevelUp() {
+        if (getLevel() == MAX_LEVEL) {
+            return false;
+        }
+        Random rand = new Random();
+        int random;
+        
+        setLevel(getLevel() + 1);
+        
+        setHealth((int)(getHealth() + (getHealth() * .75)));
+        
+        setCurrentHealth(getHealth());
+        
+        random = rand.nextInt(5 + getLevel()) + 1;
+        setAttack(getAttack() + random);
+        random = rand.nextInt(5 + getLevel()) + 1;
+        setDefense(getDefense() + random);
+
+        return true;
+        
+    }
+    
     /*
     public List getMoves() {
         return moves;

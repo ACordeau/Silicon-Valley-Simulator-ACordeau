@@ -1,5 +1,6 @@
 package test.java;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -182,6 +183,29 @@ public class StartupTest {
         startup = startupFactory.randomStartup(10);
         
         assertTrue(startup instanceof Facebook);
+        
+    }
+    
+    @Test
+    public void levelUpTest() {
+        startupFactory = new StartupFactory();
+        startup = startupFactory.randomStartup(1);
+        
+        startup.levelUp();
+        
+        assertEquals(2, startup.getLevel());
+        
+    }
+    
+    @Test
+    public void encounterLevelUpTest() {
+        
+        startupFactory = new StartupFactory();
+        startup = startupFactory.randomStartup(1);
+        
+        startup.encounterLevelUp();
+        
+        assertEquals(2, startup.getLevel());
         
     }
 
