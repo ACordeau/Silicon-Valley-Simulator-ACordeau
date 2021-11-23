@@ -8,7 +8,7 @@ public class Google extends Startup {
         setAttack(2);
         setDefense(1);
         setType("BROWSER");
-        setExp(0);
+        setIsEvolved(false);
         setName("Google");
         setLevel(1);
     }

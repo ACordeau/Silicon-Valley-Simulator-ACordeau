@@ -8,7 +8,7 @@ public class Twitter extends Startup {
         setAttack(2);
         setDefense(1);
         setType("SOCIAL MEDIA");
-        setExp(0);
+        setIsEvolved(false);
         setName("Twitter");
         setLevel(1);
     }

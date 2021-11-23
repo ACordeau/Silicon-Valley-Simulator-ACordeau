@@ -8,7 +8,7 @@ public class Reddit extends Startup {
         setAttack(2);
         setDefense(1);
         setType("SOCIAL MEDIA");
-        setExp(0);
+        setIsEvolved(false);
         setName("Reddit");
         setLevel(1);
     }

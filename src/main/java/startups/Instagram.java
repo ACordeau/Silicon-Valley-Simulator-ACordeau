@@ -8,7 +8,7 @@ public class Instagram extends Startup {
         setAttack(2);
         setDefense(1);
         setType("IMAGE SHARING");
-        setExp(0);
+        setIsEvolved(false);
         setName("Instagram");
         setLevel(1);
     }

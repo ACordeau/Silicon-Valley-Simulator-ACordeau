@@ -8,7 +8,7 @@ public class YouTube extends Startup {
         setAttack(2);
         setDefense(1);
         setType("VIDEO SHARING");
-        setExp(0);
+        setIsEvolved(false);
         setName("YouTube");
         setLevel(1);
     }

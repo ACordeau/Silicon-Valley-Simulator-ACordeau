@@ -8,7 +8,7 @@ public class Snapchat extends Startup {
         setAttack(2);
         setDefense(1);
         setType("IMAGE SHARING");
-        setExp(0);
+        setIsEvolved(false);
         setName("Snapchat");
         setLevel(1);
     }

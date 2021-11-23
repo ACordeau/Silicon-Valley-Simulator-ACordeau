@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class Startup {
 
-    private static final int MAX_LEVEL = 15;
+    private static final int MAX_LEVEL = 10;
     
     private int health;
     private int currentHealth;
     private int attack;
     private int defense;
-    private int exp;
+    private boolean isEvolved;
     private int level;
     private String name;
     private String type;
@@ -66,12 +66,13 @@ public class Startup {
         this.type = type;
     }
 
-    public int getExp() {
-        return exp;
+    
+    public boolean getIsEvolved() {
+        return isEvolved;
     }
 
-    public void setExp(int exp) {
-        this.exp = exp;
+    public void setIsEvolved(boolean evolve) {
+        this.isEvolved = evolve;
     }
 
     public String getName() {
@@ -111,17 +112,17 @@ public class Startup {
         System.out.println("Rank: " + getLevel());
         
         random = rand.nextInt(35) + 1;
-        setHealth((int)((getHealth() + (getHealth() * .75) + random)));
+        setHealth((int)((getHealth() + (getHealth() * .25) + random)));
         System.out.println("Revenue: " + getHealth());
         
         setCurrentHealth(getHealth());
         System.out.println("Current revenue raises to total revenue!");
         
-        random = rand.nextInt(5 + getLevel()) + 1;
+        random = rand.nextInt(5 + getLevel());
         setAttack(getAttack() + random);
         System.out.println("Net income: " + getAttack());
         
-        random = rand.nextInt(5 + getLevel()) + 1;
+        random = rand.nextInt(5 + getLevel());
         setDefense(getDefense() + 3);
         System.out.println("Market share: " + getDefense());
         return true;
@@ -137,7 +138,7 @@ public class Startup {
         
         setLevel(getLevel() + 1);
         
-        setHealth((int)(getHealth() + (getHealth() * .75)));
+        setHealth((int)(getHealth() + (getHealth() * .15)));
         
         setCurrentHealth(getHealth());
         

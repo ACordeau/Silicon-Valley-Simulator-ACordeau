@@ -8,7 +8,7 @@ public class Bing extends Startup {
         setAttack(2);
         setDefense(1);
         setType("BROWSER");
-        setExp(0);
+        setIsEvolved(false);
         setName("Bing");
         setLevel(1);
     }
