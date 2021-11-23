@@ -63,18 +63,26 @@ public class Gameplay {
             } else if (currentQ instanceof Quarter2) {
                 currentQ = q3;
                 currentQ.setQuarter3();
-                
+                offQuarterEvents(tg1);
+                offQuarterEvents(tg2);
                 currentQ.endQuarter();
             } else if (currentQ instanceof Quarter3) {
                 currentQ = q4;
                 currentQ.setQuarter4();
-                offQuarterEvents(tg1);
-                offQuarterEvents(tg2);
+                System.out.println("\n\nBEGINNING BATTLE BETWEEN TECH GIANTS\n\n");
+                boolean battleFlag = true;
+                do {
+                    battleFlag = battle(tg1, tg2);
+                    battleFlag = battle(tg2, tg1);
+                } while (battleFlag == true);
+                
+                takeover(tg1, tg2);
                 currentQ.endQuarter();
             } else {
                 currentQ = q1;
                 currentQ.setQuarter1();
-                
+                offQuarterEvents(tg1);
+                offQuarterEvents(tg2);
                 currentQ.endQuarter();
             }
 
