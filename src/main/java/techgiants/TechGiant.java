@@ -129,6 +129,21 @@ public class TechGiant {
         items.add(item);
         return true;
     }
+    
+    public boolean useItem(Startup startup) {
+        if (items.size() == 0) {
+            return false;
+        }
+        
+        StimulusBoost item = items.remove(0);
+        startup.setCurrentHealth(startup.getCurrentHealth() + item.getHeal());
+        if (startup.getCurrentHealth() > startup.getHealth()) {
+            startup.setCurrentHealth(startup.getHealth());
+        }
+        
+        return true;
+        
+    }
 
     /**
      * Tells us if the Tech Giant has 6 startups already.

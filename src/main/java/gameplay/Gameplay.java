@@ -10,6 +10,8 @@ import main.java.quarters.Quarter2;
 import main.java.quarters.Quarter3;
 import main.java.quarters.Quarter4;
 import main.java.quarters.Quarters;
+import main.java.startups.Bing;
+import main.java.startups.EvolvedBing;
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
 import main.java.techgiants.TechGiant;
@@ -51,6 +53,10 @@ public class Gameplay {
                 currentQ = q2;
                 currentQ.setQuarter2();
                 System.out.println("\n\nBEGINNING BATTLE BETWEEN TECH GIANTS\n\n");
+                System.out.println(tg1.getName() + " sends out " + tg1.getStartups().get(0).getName() 
+                        + " Rank: " + tg1.getStartups().get(0).getLevel());
+                System.out.println(tg2.getName() + " sends out " + tg2.getStartups().get(0).getName() 
+                        + " Rank: " + tg2.getStartups().get(0).getLevel());
                 boolean battleFlag = true;
                 do {
                     battleFlag = battle(tg1, tg2);
@@ -70,6 +76,10 @@ public class Gameplay {
                 currentQ = q4;
                 currentQ.setQuarter4();
                 System.out.println("\n\nBEGINNING BATTLE BETWEEN TECH GIANTS\n\n");
+                System.out.println(tg1.getName() + " sends out " + tg1.getStartups().get(0).getName() 
+                        + " Rank: " + tg1.getStartups().get(0).getLevel());
+                System.out.println(tg2.getName() + " sends out " + tg2.getStartups().get(0).getName() 
+                        + " Rank: " + tg2.getStartups().get(0).getLevel());
                 boolean battleFlag = true;
                 do {
                     battleFlag = battle(tg1, tg2);
@@ -126,25 +136,61 @@ public class Gameplay {
         if (startupOne.getCurrentHealth() == 0 || startupTwo.getCurrentHealth() == 0) {
             return false;
         }
-
-        int attack = startupOne.getAttack() + startupOne.randomDamage();
-
-        int defend = startupTwo.getDefense();
-
-        int inflicted = attack - defend;
-
-        if (inflicted <= 0) {
-            inflicted = 1;
+        
+        boolean useItem;
+        
+        if (startupOne.getCurrentHealth() < (startupOne.getHealth() * .5) 
+                && tg1.getItems().size() != 0) {
+            useItem = calculateUseItem();
+            if (useItem == true) {
+                tg1.useItem(startupOne);
+                System.out.println("\n" + tg1.getName() + " used a Stimulus Boost to"
+                        + " grow " + startupOne.getName() + "'s economy."
+                        + " Current revenue is now " + startupOne.getCurrentHealth());
+                return true;
+            }
         }
         
-        if ((startupTwo.getCurrentHealth() - inflicted) <= 0) {
-            startupTwo.setCurrentHealth(0);
+        
+        boolean crit;
+        boolean miss = calculateMiss();
+        if (miss == false) {
+            crit = calculateCrit();
         } else {
-            startupTwo.setCurrentHealth(startupTwo.getCurrentHealth() - inflicted);
+            crit = false;
         }
-        System.out.println("\n" + tg2.getName() + "'s " + startupTwo.getName() + " loses "
-                + inflicted + "M dollars and has "
-                + startupTwo.getCurrentHealth() + "M left!");
+        
+        if (miss == false) { 
+
+            int attack = startupOne.getAttack() + startupOne.randomDamage();
+            
+            if (crit == true) {
+                attack = attack * 2;
+                System.out.println("\n NEXT ATTACK IS A CRITICAL HIT");
+            }
+    
+            int defend = startupTwo.getDefense();
+    
+            int inflicted = attack - defend;
+    
+            if (inflicted <= 0) {
+                inflicted = 1;
+            }
+            
+            if ((startupTwo.getCurrentHealth() - inflicted) <= 0) {
+                startupTwo.setCurrentHealth(0);
+            } else {
+                startupTwo.setCurrentHealth(startupTwo.getCurrentHealth() - inflicted);
+            }
+            System.out.println("\n" + tg1.getName() + "'s " + startupOne.getName() + " attacks " 
+                    + tg2.getName() + "'s " + startupTwo.getName() + " and it loses "
+                    + inflicted + "M dollars and has "
+                    + startupTwo.getCurrentHealth() + "M left!");
+        
+        } else {
+            System.out.println("\n" + tg1.getName() + "'s " + startupOne.getName() + " missed "
+                    + "their attack!");
+        }
 
         if (startupTwo.getCurrentHealth() == 0) {
             System.out.println("\n" + tg2.getName() + "'s " + startupTwo.getName() + " has gone bankrupt! \n"
@@ -155,6 +201,7 @@ public class Gameplay {
         }
         
         return true;
+        
     }
     
     public boolean startupBattle(TechGiant tg, Startup encountered, boolean battleFlag) {
@@ -164,27 +211,49 @@ public class Gameplay {
             return false;
         }
         
-        int attack = battler.getAttack() + battler.randomDamage();
-
-        int defend = encountered.getDefense();
-
-        int inflicted = attack - defend;
-        
-        if (inflicted <= 0) {
-            inflicted = 1;
-        }
-
-        if ((encountered.getCurrentHealth() - inflicted) <= 0) {
-            encountered.setCurrentHealth(0);
+        boolean crit;
+        boolean miss = calculateMiss();
+        if (miss == false) {
+            crit = calculateCrit();
         } else {
-            encountered.setCurrentHealth(encountered.getCurrentHealth() - inflicted);
+            crit = false;
         }
-        System.out.println("\nWild " + encountered.getName() + " loses "
-                + inflicted + "M dollars and has "
-                + encountered.getCurrentHealth() + "M left!");
+        
+        if (miss == false) {
+            
+            int attack = battler.getAttack() + battler.randomDamage();
+            
+            if (crit == true) {
+                attack = attack * 2;
+                System.out.println("\n NEXT ATTACK IS A CRITICAL HIT");
+            }
+    
+            int defend = encountered.getDefense();
+    
+            int inflicted = attack - defend;
+            
+            if (inflicted <= 0) {
+                inflicted = 1;
+            }
+    
+            if ((encountered.getCurrentHealth() - inflicted) <= 0) {
+                encountered.setCurrentHealth(0);
+            } else {
+                encountered.setCurrentHealth(encountered.getCurrentHealth() - inflicted);
+            }
+            System.out.println("\n" + tg.getName() + "'s " + battler.getName() + " attacks Wild " 
+                    + encountered.getName() + " and it loses "
+                    + inflicted + "M dollars and has "
+                    + encountered.getCurrentHealth() + "M left!");
+        
+        } else {
+            System.out.println("\n" + tg.getName() + "'s " + battler.getName() + " missed "
+                    + "their attack!");
+        }
 
         if (encountered.getCurrentHealth() == 0) {            
-            System.out.println("\n" + tg.getName() + " buys out " + encountered.getName() + " for 100M dollars!");
+            System.out.println("\n" + tg.getName() + " buys out " 
+                    + encountered.getName() + " for 100M dollars!");
             tg.setMoney(tg.getMoney() - 100);
             encountered.setCurrentHealth(encountered.getHealth());
             tg.addStartup(encountered);
@@ -203,24 +272,45 @@ public class Gameplay {
             return false;
         }
         
-        int attack = encountered.getAttack() + encountered.randomDamage();
-
-        int defend = battler.getDefense();
-
-        int inflicted = attack - defend;
-        
-        if (inflicted <= 0) {
-            inflicted = 1;
-        }
-
-        if ((battler.getCurrentHealth() - inflicted) <= 0) {
-            battler.setCurrentHealth(0);
+        boolean crit;
+        boolean miss = calculateMiss();
+        if (miss == false) {
+            crit = calculateCrit();
         } else {
-            battler.setCurrentHealth(battler.getCurrentHealth() - inflicted);
+            crit = false;
         }
-        System.out.println("\n" + tg.getName() + "'s " + battler.getName() + " loses "
-                + inflicted + "M dollars and has "
-                + battler.getCurrentHealth() + "M left!");
+        
+        if (miss == false) {
+        
+            int attack = encountered.getAttack() + encountered.randomDamage();
+            
+            if (crit == true) {
+                attack = attack * 2;
+                System.out.println("\n NEXT ATTACK IS A CRITICAL HIT");
+            }
+    
+            int defend = battler.getDefense();
+    
+            int inflicted = attack - defend;
+            
+            if (inflicted <= 0) {
+                inflicted = 1;
+            }
+    
+            if ((battler.getCurrentHealth() - inflicted) <= 0) {
+                battler.setCurrentHealth(0);
+            } else {
+                battler.setCurrentHealth(battler.getCurrentHealth() - inflicted);
+            }
+            System.out.println("\nWild" + encountered.getName() + " attacks " + tg.getName() 
+                    + "'s " + battler.getName() +  " and it loses "
+                    + inflicted + "M dollars and has "
+                    + battler.getCurrentHealth() + "M left!");
+        
+        } else {
+            System.out.println("\nWild " + encountered.getName() + " missed "
+                    + "their attack!");
+        }
 
         if (battler.getCurrentHealth() == 0) {
             System.out.println("\nWild " + encountered.getName() + " runs off with " + tg.getName() + "'s money!");
@@ -319,6 +409,25 @@ public class Gameplay {
         return true;
     }
     
+    public void evolution(TechGiant tg) {
+        
+        for (int i = 0; i < tg.getStartups().size(); i++) {
+            if ((tg.getStartups().get(i).getLevel() >= 5) 
+                    && (tg.getStartups().get(i).getIsEvolved() == false)) {
+                evolve(tg.getStartups().get(i));
+            }
+        }
+        
+    }
+    
+    private void evolve(Startup s) {
+        
+        if (s instanceof Bing) {
+            //Startup ns = new EvolvedBing(s);
+        }
+        
+    }
+    
     public List<Startup> increaseStartupDef(TechGiant tg) {
         
         List<Startup> list = new LinkedList<>();
@@ -356,6 +465,40 @@ public class Gameplay {
         
     }
     
+    private boolean calculateMiss() {
+        Random rand = new Random();
+        int random = rand.nextInt(100) + 1;
+        
+        if (random >= 45 && random <= 65) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+    
+    private boolean calculateCrit() {
+        Random rand = new Random();
+        int random = rand.nextInt(100) + 1;
+        
+        if (random >= 13 && random <= 15) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    private boolean calculateUseItem() {
+        Random rand = new Random();
+        int random = rand.nextInt(100) + 1;
+        
+        if (random >= 20 && random <= 55) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public boolean buyItem(TechGiant tg) {
         
         StimulusBoost item = new StimulusBoost();
@@ -367,7 +510,7 @@ public class Gameplay {
             return false;
         }
         
-        if (random > 90) {
+        if (random < 90) {
             tg.setMoney(tg.getMoney() - item.getCost());
             tg.addItem(item);
             System.out.println("\n" + tg.getName() + " has obtained a stimulus boost to give to a Startup for " + item.getCost() + "M dollars!");

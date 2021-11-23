@@ -122,8 +122,8 @@ public class Startup {
         setAttack(getAttack() + random);
         System.out.println("Net income: " + getAttack());
         
-        random = rand.nextInt(5 + getLevel());
-        setDefense(getDefense() + 3);
+        random = rand.nextInt(3 + getLevel());
+        setDefense(getDefense() + random);
         System.out.println("Market share: " + getDefense());
         return true;
         
@@ -144,7 +144,7 @@ public class Startup {
         
         random = rand.nextInt(5 + getLevel()) + 1;
         setAttack(getAttack() + random);
-        random = rand.nextInt(5 + getLevel()) + 1;
+        random = rand.nextInt(3 + getLevel()) + 1;
         setDefense(getDefense() + random);
 
         return true;
