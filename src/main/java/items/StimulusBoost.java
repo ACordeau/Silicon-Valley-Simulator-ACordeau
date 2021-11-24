@@ -1,3 +1,9 @@
+/**
+ * This file is a Health Potion type item
+ * that TechGiants can buy to use on their Startups.
+ * This is part of requirement 9.
+ */
+
 package main.java.items;
 
 public class StimulusBoost {

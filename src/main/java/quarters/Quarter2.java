@@ -1,3 +1,12 @@
+/**
+ * This file uses the State pattern to
+ * create quarters where different effects
+ * take place. This is for requirement 9, 4, and 5.
+ * This is the Quarter 2 where a random type is chosen
+ * and all Startups of that type lose 
+ * 10 percent of their health.
+ */
+
 package main.java.quarters;
 
 import java.util.Random;
@@ -23,12 +32,14 @@ public class Quarter2 implements Quarters {
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter1() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Makes the Startups lose their HP.
     @Override
     public void setQuarter2() {
         this.type = randomType();
@@ -48,15 +59,17 @@ public class Quarter2 implements Quarters {
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter3() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter4() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
@@ -77,6 +90,7 @@ public class Quarter2 implements Quarters {
 
     }
 
+    //Chooses a random type.
     private String randomType() {
         String type;
         String[] types = { "IMAGE SHARING", "VIDEO SHARING", "BROWSING", "SOCIAL MEDIA" };
@@ -92,6 +106,7 @@ public class Quarter2 implements Quarters {
         tg2 = game.getTechGiant2();
     }
 
+    //Algorithm for HP loss.
     private void executeCuts(TechGiant tg, int startHp, 
             int currentHp, int lostHp, String startupType) {
 
@@ -117,6 +132,7 @@ public class Quarter2 implements Quarters {
 
     }
 
+    //Regain HP after the quarter is over.
     private void regainCuts(TechGiant tg, int startHp, 
             int currentHp, int gainHp, String startupType) {
 

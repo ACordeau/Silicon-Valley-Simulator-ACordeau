@@ -1,3 +1,9 @@
+/**
+ * Entry point of the program that creates
+ * the gameplay object that begins all the
+ * execution.
+ */
+
 package main.java.svalley;
 
 import main.java.gameplay.Gameplay;

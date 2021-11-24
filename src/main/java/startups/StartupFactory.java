@@ -1,3 +1,10 @@
+/**
+ * This file uses the Factory Pattern to
+ * create new Startups of different 
+ * types at runtime. It is used to satisfy
+ * requirement 1.
+ */
+
 package main.java.startups;
 
 public class StartupFactory {

@@ -1,3 +1,13 @@
+/**
+ * This file uses the State pattern to
+ * create quarters where different effects
+ * take place. This is for requirement 9, 4, and 5.
+ * This is the Quarter 3 where Startups of type
+ * VideoSharing gains 25% increase in Attack,
+ * and Startups of type ImageSharing lose 25%
+ * of their Attack.
+ */
+
 package main.java.quarters;
 
 import main.java.gameplay.Gameplay;
@@ -22,18 +32,21 @@ public class Quarter3 implements Quarters {
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter1() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter2() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Starts quarter and applies stat changes.
     @Override
     public void setQuarter3() {
         System.out.println("\nStarting Quarter 3");
@@ -49,9 +62,10 @@ public class Quarter3 implements Quarters {
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter4() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
@@ -69,6 +83,7 @@ public class Quarter3 implements Quarters {
         tg2 = game.getTechGiant2();
     }
     
+    //Changes initial stats to gained/lost
     private boolean financialImbalance(TechGiant tg) {
         int currAtk;
         int newAtk;
@@ -97,6 +112,7 @@ public class Quarter3 implements Quarters {
         return true;
     }
     
+    //Returns gained/lost stats to original stats.
     private boolean financialRebalance(TechGiant tg) {
         int currAtk;
         int newAtk;

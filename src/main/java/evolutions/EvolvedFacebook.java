@@ -1,3 +1,8 @@
+/**
+ * This file uses the decorator pattern to
+ * evolve a startup. This is for requirement 11.
+ */
+
 package main.java.evolutions;
 
 import main.java.startups.Facebook;

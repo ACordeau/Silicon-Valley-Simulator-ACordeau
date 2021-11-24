@@ -1,3 +1,9 @@
+/**
+ * This file is a class for a TechGiant
+ * that can be made into  other types.
+ * This file satisfies Requirement 1.
+ */
+
 package main.java.techgiants;
 
 import java.util.LinkedList;
@@ -54,7 +60,7 @@ public class TechGiant {
 
     /**
      * Initialization of TechGiant to determine beginning Startup.
-     * 
+     * Satisfies requirement 1.
      * @return random int associated with Startup.
      */
     public int initialStartup() {
@@ -70,7 +76,7 @@ public class TechGiant {
 
     /**
      * Add Startup to list of TechGiant Startups.
-     * 
+     * Satisfies requirement 2.
      * @param startup to add to the list.
      * @return boolean for success or failure.
      */
@@ -94,7 +100,7 @@ public class TechGiant {
 
     /**
      * Remove Startup from list of TechGiant Startups.
-     * 
+     * Satisfies requirement 2.
      * @param startupIdx index of startup.
      * @return boolean for success or failure.
      */
@@ -125,6 +131,7 @@ public class TechGiant {
     
     /**
      * Adds an item to the item list.
+     * Satisfies requirement 9.
      * @param item Current Item.
      * @return boolean for success or failure.
      */
@@ -193,6 +200,7 @@ public class TechGiant {
     /**
      * Algorithm to decide how much money is lost
      * to a startup when losing.
+     * Satisfies requirement 8.
      * @param temp startup lost to.
      * @return money to lose.
      */
@@ -207,6 +215,7 @@ public class TechGiant {
     /**
      * Algorithm to decide how much money is lost
      * to a tech giant when losing.
+     * Satisfies requirement 2, 8.
      * @param tg tech giant lost to.
      * @return money to lose.
      */

@@ -1,3 +1,12 @@
+/**
+ * This file uses the State pattern to
+ * create quarters where different effects
+ * take place. This is for requirement 9, 4, and 5.
+ * This is the Quarter 4 where if a tech giant loses 
+ * against a tech giant of type Browser, they lose 
+ * more money to them.
+ */
+
 package main.java.quarters;
 
 import main.java.gameplay.Gameplay;
@@ -20,24 +29,28 @@ public class Quarter4 implements Quarters {
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter1() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter2() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Error message if this is somehow reached.
     @Override
     public void setQuarter3() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
+    //Sets which tech giants are browsers.
     @Override
     public void setQuarter4() {
         System.out.println("\nStarting Quarter 4");
@@ -68,6 +81,7 @@ public class Quarter4 implements Quarters {
         tg2 = game.getTechGiant2();
     }
     
+    //Sets extra cut boolean
     private boolean moneyLaundering(TechGiant tg) {
         
         if (!tg.getType().equals("BROWSING")) {
@@ -79,6 +93,7 @@ public class Quarter4 implements Quarters {
         
     }
     
+    //Sets extra cut boolean
     private boolean launderingBust(TechGiant tg) {
         
         tg.setIsExtraCut(false);

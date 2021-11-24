@@ -1,3 +1,11 @@
+/**
+ * This file uses the State pattern to
+ * create quarters where different effects
+ * take place. This is for requirement 9, 4, and 5.
+ * This is the Quarter 1 where all tech giants gain 
+ * 25 percent interest for their money.
+ */
+
 package main.java.quarters;
 
 import main.java.gameplay.Gameplay;
@@ -20,6 +28,7 @@ public class Quarter1 implements Quarters {
 
     }
 
+    //Gives both TechGiants 25 percent increase in money.
     @Override
     public void setQuarter1() {
         System.out.println("\nStarting Quarter 1");
@@ -35,21 +44,22 @@ public class Quarter1 implements Quarters {
 
     }
 
+    //Error message in case this is somehow reached.
     @Override
     public void setQuarter2() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
     @Override
     public void setQuarter3() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 
     @Override
     public void setQuarter4() {
-        System.out.println("Error Message");
+        System.err.println("Error Message");
 
     }
 

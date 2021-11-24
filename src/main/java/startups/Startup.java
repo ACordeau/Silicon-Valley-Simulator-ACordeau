@@ -1,3 +1,9 @@
+/**
+ * This file is a class for a Startup
+ * that can be made into other types.
+ * This file satisfies Requirement 1.
+ */
+
 package main.java.startups;
 
 import java.util.Random;
@@ -15,7 +21,7 @@ import main.java.evolutions.EvolvedYouTube;
 
 public class Startup {
 
-    private static final int MAX_LEVEL = 10;
+    private static final int MAX_LEVEL = 15;
     
     private int health;
     private int currentHealth;
@@ -103,6 +109,7 @@ public class Startup {
     
     /**
      * Algorithm for deciding how leveling up works.
+     * Helps satisfy requirement 11.
      * @return boolean for success or failure.
      */
     public boolean levelUp() {
@@ -172,6 +179,7 @@ public class Startup {
      * This is the factory that figures out 
      * what type of startup is trying to evolve
      * so it can be decorated.
+     * Satisfies requirement 11.
      * @return Decorated Startup.
      */
     public Startup evolve() {

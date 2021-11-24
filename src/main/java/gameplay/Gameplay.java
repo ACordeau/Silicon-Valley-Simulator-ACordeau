@@ -1,17 +1,22 @@
+/**
+ * This file is a class where all of the 
+ * actual gameplay logic takes place. Any
+ * logic that can be considered gamplay loop
+ * related or "general" are here.
+ */
+
 package main.java.gameplay;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import main.java.evolutions.EvolvedBing;
 import main.java.items.StimulusBoost;
 import main.java.quarters.Quarter1;
 import main.java.quarters.Quarter2;
 import main.java.quarters.Quarter3;
 import main.java.quarters.Quarter4;
 import main.java.quarters.Quarters;
-import main.java.startups.Bing;
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
 import main.java.techgiants.TechGiant;
@@ -42,6 +47,13 @@ public class Gameplay {
      */
     public boolean start() {
 
+        //This is the actual gameplay loop that continues
+        //until a game over is reached.
+        //It is also where all of the States for
+        //quarters are used which satisfy requirements 4, 5, 6, and 9.
+        //Odd numbered quarters are for general gameplay
+        //even numbered quarters are for TechGiant battles
+        //which satisfies requirement 8.
         do {
             if (currentQ == null) {
                 currentQ = q1;
@@ -105,6 +117,8 @@ public class Gameplay {
         return true;
     }
     
+    //Only 2 giants exist and have minimum one Startup
+    //Satisfies requirement 1.
     private void init() {
         
         int random;
@@ -130,6 +144,7 @@ public class Gameplay {
     /**
      * Entry point where battle takes place between 
      * Tech Giants.
+     * Satisfies requirement 8, 10, and 12.
      * @param tg1 Fighting Tech Giant.
      * @param tg2 Tech giant to fight.
      * @return boolean for success or failure.
@@ -214,6 +229,7 @@ public class Gameplay {
     /**
      * Entry point for where a Tech Giant
      * fights an encountered Startup.
+     * Satisfies requirement 8, 10, and 12.
      * @param tg Fighting Tech Giant.
      * @param encountered Random Startup.
      * @param battleFlag Still battling?
@@ -284,6 +300,7 @@ public class Gameplay {
      * Entry point for where
      * an encountered Startup
      * Fights a Tech Giant.
+     * Satisfies requirement 8, 10, and 12.
      * @param encountered Random Startup.
      * @param tg Fighting Tech Giant.
      * @param battleFlag Still battling?
@@ -352,6 +369,7 @@ public class Gameplay {
     /**
      * Entry point for aquisition of 
      * a startup from another Tech Giant.
+     * Satisfies requirement 2.
      * @param tg1 TechGiant 1.
      * @param tg2 TechGiant 2.
      * @return The taken over startup.
@@ -425,6 +443,7 @@ public class Gameplay {
     /**
      * This is the flow of events in
      * the odd numbered quarters.
+     * Satisfies requirement 5, 6, 7.
      * @param tg Current Tech Giant.
      * @return boolean for success.
      */
@@ -454,6 +473,7 @@ public class Gameplay {
     
     /**
      * Entry point for startup evolution.
+     * Satisfies requirement 11.
      * @param tg Current Tech Giant.
      */
     public void evolution(TechGiant tg) {
@@ -590,6 +610,7 @@ public class Gameplay {
 
     /**
      * Sets the new State of gameplay.
+     * Satisfies requirement 4, 5, 6.
      * @param newQuarter quarter.
      */
     public void setQuarterState(Quarters newQuarter) {

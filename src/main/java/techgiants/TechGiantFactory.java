@@ -1,3 +1,10 @@
+/**
+ * This file uses the Factory Pattern to
+ * create new Tech Giants of different 
+ * types at runtime. It is used to satisfy
+ * requirement 1.
+ */
+
 package main.java.techgiants;
 
 public class TechGiantFactory {
