@@ -151,6 +151,37 @@ public class Startup {
         
     }
     
+    public Startup evolve() {
+        
+        Startup s = this;
+        
+        if (s instanceof Bing) {
+            return s = new EvolvedBing(s);
+        } else if (s instanceof Facebook) {
+            return s = new EvolvedFacebook(s);
+        } else if (s instanceof Google) {
+            return s = new EvolvedGoogle(s);
+        } else if (s instanceof Instagram) {
+            return s = new EvolvedInstagram(s);
+        } else if (s instanceof Reddit) {
+            return s = new EvolvedReddit(s);
+        } else if (s instanceof Snapchat) {
+            return s = new EvolvedSnapchat(s);
+        } else if (s instanceof TikTok) {
+            return s = new EvolvedTikTok(s);
+        } else if (s instanceof Twitter) {
+            return s = new EvolvedTwitter(s);
+        } else if (s instanceof Vimeo) {
+            return s = new EvolvedVimeo(s);
+        } else if (s instanceof YouTube) {
+            return s = new EvolvedYouTube(s);
+        } else {
+            System.out.println("I'M NOT SURE HOW YOU MANAGED TO GET HERE.");
+            return null;
+        }
+        
+    }
+    
     /*
     public List getMoves() {
         return moves;

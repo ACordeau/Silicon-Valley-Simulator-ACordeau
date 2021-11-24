@@ -392,6 +392,8 @@ public class Gameplay {
         
         increaseStartupDef(tg);
         
+        evolution(tg);
+        
         Startup encountered = randomEncounter();
         System.out.println("\nA wild " + encountered.getName() + " challenges " + tg.getName() + "'s marketing skills!");
         equalize(encountered, tg);
@@ -402,28 +404,27 @@ public class Gameplay {
             battleFlag = startupBattle(encountered, tg, battleFlag);
         } while (battleFlag == true);
         
-        //evolution(tg);
-        
         buyItem(tg);
         
         return true;
     }
     
     public void evolution(TechGiant tg) {
-        
+        Startup temp;
         for (int i = 0; i < tg.getStartups().size(); i++) {
             if ((tg.getStartups().get(i).getLevel() >= 5) 
                     && (tg.getStartups().get(i).getIsEvolved() == false)) {
-                evolve(tg.getStartups().get(i));
+                
+                temp = tg.getStartups().remove(i);
+                
+                temp = temp.evolve();
+                
+                tg.getStartups().add(i, temp);
+                
+                System.out.println("Revenue: " + tg.getStartups().get(i).getHealth());
+                System.out.println("Net income: " + tg.getStartups().get(i).getAttack());
+                System.out.println("Market share: " + tg.getStartups().get(i).getDefense());
             }
-        }
-        
-    }
-    
-    private void evolve(Startup s) {
-        
-        if (s instanceof Bing) {
-            //Startup ns = new EvolvedBing(s);
         }
         
     }
