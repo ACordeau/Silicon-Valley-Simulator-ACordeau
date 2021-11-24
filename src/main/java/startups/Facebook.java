@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class Facebook extends Startup {
 
-    Facebook() {
+    protected Facebook() {
         setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);

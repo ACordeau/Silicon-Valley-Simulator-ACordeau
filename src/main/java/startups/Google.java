@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class Google extends Startup {
 
-    Google() {
+    protected Google() {
         setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);

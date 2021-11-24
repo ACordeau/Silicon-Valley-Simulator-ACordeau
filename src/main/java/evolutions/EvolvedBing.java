@@ -1,9 +1,13 @@
-package main.java.startups;
+package main.java.evolutions;
+
+import main.java.startups.Bing;
+import main.java.startups.Startup;
 
 public class EvolvedBing extends Bing {
 
     public EvolvedBing(Startup startup) {
-        super();
+        //super();
+        super.setLevel(startup.getLevel());
         super.setHealth(startup.getHealth() + 100);
         super.setCurrentHealth(startup.getHealth());
         super.setAttack(startup.getAttack() + 10);

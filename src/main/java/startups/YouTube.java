@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class YouTube extends Startup {
 
-    YouTube() {
+    protected YouTube() {
         setHealth(50);
         setCurrentHealth(this.getHealth());
         setAttack(2);

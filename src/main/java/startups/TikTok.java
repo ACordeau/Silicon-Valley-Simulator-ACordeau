@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class TikTok extends Startup {
 
-    TikTok() {
+    protected TikTok() {
         setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);

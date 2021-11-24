@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class Bing extends Startup {
 
-    Bing() {
+    protected Bing() {
         setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);

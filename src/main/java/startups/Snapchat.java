@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class Snapchat extends Startup {
 
-    Snapchat() {
+    protected Snapchat() {
         setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);

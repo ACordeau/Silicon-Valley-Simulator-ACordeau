@@ -2,6 +2,17 @@ package main.java.startups;
 
 import java.util.Random;
 
+import main.java.evolutions.EvolvedBing;
+import main.java.evolutions.EvolvedFacebook;
+import main.java.evolutions.EvolvedGoogle;
+import main.java.evolutions.EvolvedInstagram;
+import main.java.evolutions.EvolvedReddit;
+import main.java.evolutions.EvolvedSnapchat;
+import main.java.evolutions.EvolvedTikTok;
+import main.java.evolutions.EvolvedTwitter;
+import main.java.evolutions.EvolvedVimeo;
+import main.java.evolutions.EvolvedYouTube;
+
 public class Startup {
 
     private static final int MAX_LEVEL = 10;

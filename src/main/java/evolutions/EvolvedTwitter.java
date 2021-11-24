@@ -1,9 +1,13 @@
-package main.java.startups;
+package main.java.evolutions;
+
+import main.java.startups.Startup;
+import main.java.startups.Twitter;
 
 public class EvolvedTwitter extends Twitter {
 
     public EvolvedTwitter(Startup startup) {
-        super();
+        //super();
+        super.setLevel(startup.getLevel());
         super.setHealth(startup.getHealth() + 100);
         super.setCurrentHealth(startup.getHealth());
         super.setAttack(startup.getAttack() + 10);

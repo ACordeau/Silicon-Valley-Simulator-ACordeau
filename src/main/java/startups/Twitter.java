@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class Twitter extends Startup {
 
-    Twitter() {
+    protected Twitter() {
         setHealth(50);
         setCurrentHealth(this.getHealth());
         setAttack(2);

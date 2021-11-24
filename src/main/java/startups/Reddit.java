@@ -2,7 +2,7 @@ package main.java.startups;
 
 public class Reddit extends Startup {
 
-    Reddit() {
+    protected Reddit() {
         setHealth(50);
         setCurrentHealth(getHealth());
         setAttack(2);

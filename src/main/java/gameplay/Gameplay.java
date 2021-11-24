@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import main.java.evolutions.EvolvedBing;
 import main.java.items.StimulusBoost;
 import main.java.quarters.Quarter1;
 import main.java.quarters.Quarter2;
@@ -11,7 +12,6 @@ import main.java.quarters.Quarter3;
 import main.java.quarters.Quarter4;
 import main.java.quarters.Quarters;
 import main.java.startups.Bing;
-import main.java.startups.EvolvedBing;
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
 import main.java.techgiants.TechGiant;
