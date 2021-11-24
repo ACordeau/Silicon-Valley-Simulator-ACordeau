@@ -5,6 +5,10 @@ import main.java.startups.Startup;
 
 public class EvolvedSnapchat extends Snapchat {
 
+    /**
+     * Decorator for Snapchat.
+     * @param startup Snapchat.
+     */
     public EvolvedSnapchat(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

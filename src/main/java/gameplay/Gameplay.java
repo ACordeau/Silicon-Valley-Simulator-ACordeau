@@ -53,9 +53,11 @@ public class Gameplay {
                 currentQ = q2;
                 currentQ.setQuarter2();
                 System.out.println("\n\nBEGINNING BATTLE BETWEEN TECH GIANTS\n\n");
-                System.out.println(tg1.getName() + " sends out " + tg1.getStartups().get(0).getName() 
+                System.out.println(tg1.getName() + " sends out "
+                        + tg1.getStartups().get(0).getName() 
                         + " Rank: " + tg1.getStartups().get(0).getLevel());
-                System.out.println(tg2.getName() + " sends out " + tg2.getStartups().get(0).getName() 
+                System.out.println(tg2.getName() + " sends out " 
+                        + tg2.getStartups().get(0).getName() 
                         + " Rank: " + tg2.getStartups().get(0).getLevel());
                 boolean battleFlag = true;
                 do {
@@ -76,9 +78,11 @@ public class Gameplay {
                 currentQ = q4;
                 currentQ.setQuarter4();
                 System.out.println("\n\nBEGINNING BATTLE BETWEEN TECH GIANTS\n\n");
-                System.out.println(tg1.getName() + " sends out " + tg1.getStartups().get(0).getName() 
+                System.out.println(tg1.getName() + " sends out " 
+                        + tg1.getStartups().get(0).getName() 
                         + " Rank: " + tg1.getStartups().get(0).getLevel());
-                System.out.println(tg2.getName() + " sends out " + tg2.getStartups().get(0).getName() 
+                System.out.println(tg2.getName() + " sends out " 
+                        + tg2.getStartups().get(0).getName() 
                         + " Rank: " + tg2.getStartups().get(0).getLevel());
                 boolean battleFlag = true;
                 do {
@@ -124,8 +128,10 @@ public class Gameplay {
     }
     
     /**
-     * Entry point where battle takes place
-     * @param enemy Tech giant to fight.
+     * Entry point where battle takes place between 
+     * Tech Giants.
+     * @param tg1 Fighting Tech Giant.
+     * @param tg2 Tech giant to fight.
      * @return boolean for success or failure.
      */
     public boolean battle(TechGiant tg1, TechGiant tg2) {
@@ -193,7 +199,8 @@ public class Gameplay {
         }
 
         if (startupTwo.getCurrentHealth() == 0) {
-            System.out.println("\n" + tg2.getName() + "'s " + startupTwo.getName() + " has gone bankrupt! \n"
+            System.out.println("\n" + tg2.getName() + "'s " 
+                    + startupTwo.getName() + " has gone bankrupt! \n"
                     + tg1.getName() + " wins this corporate battle!");
             startupOne.levelUp();
             
@@ -204,6 +211,14 @@ public class Gameplay {
         
     }
     
+    /**
+     * Entry point for where a Tech Giant
+     * fights an encountered Startup.
+     * @param tg Fighting Tech Giant.
+     * @param encountered Random Startup.
+     * @param battleFlag Still battling?
+     * @return boolean for continued battling.
+     */
     public boolean startupBattle(TechGiant tg, Startup encountered, boolean battleFlag) {
         Startup battler = tg.getStartups().get(0);
         
@@ -265,6 +280,15 @@ public class Gameplay {
         return true;
     }
     
+    /**
+     * Entry point for where
+     * an encountered Startup
+     * Fights a Tech Giant.
+     * @param encountered Random Startup.
+     * @param tg Fighting Tech Giant.
+     * @param battleFlag Still battling?
+     * @return boolean for continued battling.
+     */
     public boolean startupBattle(Startup encountered, TechGiant tg, boolean battleFlag) {
         Startup battler = tg.getStartups().get(0);
         
@@ -313,7 +337,8 @@ public class Gameplay {
         }
 
         if (battler.getCurrentHealth() == 0) {
-            System.out.println("\nWild " + encountered.getName() + " runs off with " + tg.getName() + "'s money!");
+            System.out.println("\nWild " + encountered.getName() 
+                + " runs off with " + tg.getName() + "'s money!");
             
             tg.loseMoney(encountered);
             battler.setCurrentHealth(battler.getHealth());
@@ -324,6 +349,13 @@ public class Gameplay {
         return true;
     }
     
+    /**
+     * Entry point for aquisition of 
+     * a startup from another Tech Giant.
+     * @param tg1 TechGiant 1.
+     * @param tg2 TechGiant 2.
+     * @return The taken over startup.
+     */
     public Startup takeover(TechGiant tg1, TechGiant tg2) {
         Startup startupOne = tg1.getStartups().get(0);
         Startup startupTwo = tg2.getStartups().get(0);
@@ -355,6 +387,10 @@ public class Gameplay {
         return random;
     }
     
+    /**
+     * Code encapsulation for creating a random number when creating starters.
+     * @returnm random int between 1 and 10.
+     */
     public static int randomStartupNumber() {
 
         Random rand = new Random();
@@ -386,6 +422,12 @@ public class Gameplay {
 
     }
     
+    /**
+     * This is the flow of events in
+     * the odd numbered quarters.
+     * @param tg Current Tech Giant.
+     * @return boolean for success.
+     */
     public boolean offQuarterEvents(TechGiant tg) {
         
         System.out.println("\n\n" + tg.getName() + "'s turn!\n\n");
@@ -395,7 +437,8 @@ public class Gameplay {
         evolution(tg);
         
         Startup encountered = randomEncounter();
-        System.out.println("\nA wild " + encountered.getName() + " challenges " + tg.getName() + "'s marketing skills!");
+        System.out.println("\nA wild " + encountered.getName() 
+            + " challenges " + tg.getName() + "'s marketing skills!");
         equalize(encountered, tg);
         
         boolean battleFlag = true;
@@ -409,6 +452,10 @@ public class Gameplay {
         return true;
     }
     
+    /**
+     * Entry point for startup evolution.
+     * @param tg Current Tech Giant.
+     */
     public void evolution(TechGiant tg) {
         Startup temp;
         for (int i = 0; i < tg.getStartups().size(); i++) {
@@ -429,13 +476,19 @@ public class Gameplay {
         
     }
     
+    /**
+     * Increases startup defense if Startup
+     * type matches it's Tech Giant.
+     * @param tg Current Tech Giant.
+     * @return list of affected startups.
+     */
     public List<Startup> increaseStartupDef(TechGiant tg) {
         
         List<Startup> list = new LinkedList<>();
         
         for (int i = 0; i < tg.getStartups().size(); i++) {
             Startup temp = tg.getStartups().get(i);
-            if (temp.getCurrentHealth() < temp.getHealth()) {
+            if (temp.getType().equals(tg.getType())) {
                 temp.setDefense(temp.getDefense() + temp.getLevel());
                 list.add(temp);
             }
@@ -444,6 +497,10 @@ public class Gameplay {
         return list;
     }
     
+    /**
+     * Code encapsulation to create a random startup encounter.
+     * @return Startup.
+     */
     public Startup randomEncounter() {
         int random = randomStartupNumber();
         StartupFactory sf = new StartupFactory();
@@ -454,7 +511,7 @@ public class Gameplay {
     private void equalize(Startup encountered, TechGiant tg) {
         Startup equalizer = tg.getStartups().get(0);
 
-        if(equalizer.getLevel() < 5) {
+        if (equalizer.getLevel() < 5) {
             while (encountered.getLevel() < equalizer.getLevel()) {
                 encountered.encounterLevelUp();
             }
@@ -500,6 +557,12 @@ public class Gameplay {
         }
     }
     
+    /**
+     * Entry point for buying an item if it can be
+     * afforded. Has a chance to not purchase.
+     * @param tg Current Tech Giant.
+     * @return boolean for success or failure.
+     */
     public boolean buyItem(TechGiant tg) {
         
         StimulusBoost item = new StimulusBoost();
@@ -507,17 +570,19 @@ public class Gameplay {
         int random = rand.nextInt(100) + 1;
         
         if (tg.getMoney() <= item.getCost()) {
-            System.out.println("\n" + tg.getName() + " does not have enough revenue to obtain a Simulus Boost");
+            System.out.println("\n" + tg.getName() 
+                + " does not have enough revenue to obtain a Simulus Boost");
             return false;
         }
         
         if (random < 90) {
             tg.setMoney(tg.getMoney() - item.getCost());
             tg.addItem(item);
-            System.out.println("\n" + tg.getName() + " has obtained a stimulus boost to give to a Startup for " + item.getCost() + "M dollars!");
+            System.out.println("\n" + tg.getName() 
+                + " has obtained a stimulus boost to give to a Startup for " 
+                + item.getCost() + "M dollars!");
             return true;
-        }
-        else {
+        } else {
             System.out.println("\n" + tg.getName() + " chose not to obtain a stimulus boost.");
             return false;
         }

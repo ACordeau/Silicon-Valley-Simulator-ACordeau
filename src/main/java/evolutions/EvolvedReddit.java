@@ -5,6 +5,10 @@ import main.java.startups.Startup;
 
 public class EvolvedReddit extends Reddit {
 
+    /**
+     * Decorator for Reddit.
+     * @param startup Reddit.
+     */
     public EvolvedReddit(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

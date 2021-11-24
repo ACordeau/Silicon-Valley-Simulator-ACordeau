@@ -78,11 +78,13 @@ public class TechGiant {
 
         if (!isFull()) {
             startups.add(startup);
-            System.out.println("\n" + startup.getName() + " has been added to the corporate market!");
+            System.out.println("\n" + startup.getName() 
+                + " has been added to the corporate market!");
             return true;
         } else if (isFull()) {
             extraStartups.add(startup);
-            System.out.println("The market is full, " + startup.getName() + " was sent to market training camp!");
+            System.out.println("The market is full, " + startup.getName() 
+                + " was sent to market training camp!");
             return false;
         } else {
             return false;
@@ -121,6 +123,11 @@ public class TechGiant {
         return items;
     }
     
+    /**
+     * Adds an item to the item list.
+     * @param item Current Item.
+     * @return boolean for success or failure.
+     */
     public boolean addItem(StimulusBoost item) {
         if (item == null) {
             return false;
@@ -130,6 +137,11 @@ public class TechGiant {
         return true;
     }
     
+    /**
+     * Removes an item and uses it's effect.
+     * @param startup Startup to use item on.
+     * @return boolean for success or failure.
+     */
     public boolean useItem(Startup startup) {
         if (items.size() == 0) {
             return false;
@@ -158,6 +170,10 @@ public class TechGiant {
         }
     }
     
+    /**
+     * Tells us if the extraStartups list is empty.
+     * @return boolean for success or failure.
+     */
     public boolean isEmpty() {
         if (extraStartups.size() == 0) {
             return true;
@@ -166,17 +182,34 @@ public class TechGiant {
         }
     }
     
+    /**
+     * Money gainer for tech giant victories.
+     * @param newMoney money to be gained.
+     */
     public void gainMoney(int newMoney) {
         setMoney(getMoney() + newMoney);
     }
     
+    /**
+     * Algorithm to decide how much money is lost
+     * to a startup when losing.
+     * @param temp startup lost to.
+     * @return money to lose.
+     */
     public int loseMoney(Startup temp) {
         Random rand = new Random();
         int random = rand.nextInt(temp.getCurrentHealth()) + 10;
-        System.out.println("\n" + this.getName() + " loses " + random + "M dollars to " + temp.getName());
+        System.out.println("\n" + this.getName() + " loses " 
+                + random + "M dollars to " + temp.getName());
         return random;
     }
     
+    /**
+     * Algorithm to decide how much money is lost
+     * to a tech giant when losing.
+     * @param tg tech giant lost to.
+     * @return money to lose.
+     */
     public int loseMoney(TechGiant tg) {
         Random rand = new Random();
         int random = rand.nextInt(100 - 60) + 40;
@@ -184,10 +217,13 @@ public class TechGiant {
         
         if (tg.extraCut == true) {
             extra = (int) (random * BIG_CUT);
-            System.out.println("\n" + this.getName() + " gives " + random + "M dollars to " + tg.getName() + " plus an extra " + extra + " for losing to a browsing company!");
+            System.out.println("\n" + this.getName() + " gives " 
+                    + random + "M dollars to " + tg.getName() + " plus an extra " 
+                    + extra + " for losing to a browsing company!");
             return random + extra;
         } else {
-            System.out.println("\n" + this.getName() + " gives " + random + "M dollars to " + tg.getName());
+            System.out.println("\n" + this.getName() + " gives " + random 
+                    + "M dollars to " + tg.getName());
             return random;
         }
         

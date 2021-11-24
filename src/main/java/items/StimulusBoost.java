@@ -5,7 +5,7 @@ public class StimulusBoost {
     private int cost;
     private int heal;
     
-    public StimulusBoost(){
+    public StimulusBoost() {
         setCost(50);
         setHeal(50);
     }

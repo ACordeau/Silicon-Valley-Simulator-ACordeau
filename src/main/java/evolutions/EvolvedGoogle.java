@@ -5,6 +5,10 @@ import main.java.startups.Startup;
 
 public class EvolvedGoogle extends Google {
 
+    /**
+     * Decorator for Google.
+     * @param startup Google.
+     */
     public EvolvedGoogle(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

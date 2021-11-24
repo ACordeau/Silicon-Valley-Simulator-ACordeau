@@ -5,6 +5,10 @@ import main.java.startups.Vimeo;
 
 public class EvolvedVimeo extends Vimeo {
 
+    /**
+     * Decorator for Vimeo.
+     * @param startup Vimeo.
+     */
     public EvolvedVimeo(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

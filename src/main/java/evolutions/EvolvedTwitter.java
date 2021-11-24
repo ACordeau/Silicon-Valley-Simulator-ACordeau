@@ -5,6 +5,10 @@ import main.java.startups.Twitter;
 
 public class EvolvedTwitter extends Twitter {
 
+    /**
+     * Decorator for Twitter.
+     * @param startup Twitter.
+     */
     public EvolvedTwitter(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

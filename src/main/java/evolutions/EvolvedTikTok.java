@@ -5,6 +5,10 @@ import main.java.startups.TikTok;
 
 public class EvolvedTikTok extends TikTok {
 
+    /**
+     * Decorator for TikTok.
+     * @param startup TikTok.
+     */
     public EvolvedTikTok(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

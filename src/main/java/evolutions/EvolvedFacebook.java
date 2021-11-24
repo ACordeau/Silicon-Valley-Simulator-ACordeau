@@ -5,6 +5,10 @@ import main.java.startups.Startup;
 
 public class EvolvedFacebook extends Facebook {
 
+    /**
+     * Decorator for Facebook.
+     * @param startup Facebook.
+     */
     public EvolvedFacebook(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

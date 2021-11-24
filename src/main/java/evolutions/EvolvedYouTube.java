@@ -5,6 +5,10 @@ import main.java.startups.YouTube;
 
 public class EvolvedYouTube extends YouTube {
 
+    /**
+     * Decorator for YouTube.
+     * @param startup YouTube.
+     */
     public EvolvedYouTube(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

@@ -5,6 +5,10 @@ import main.java.startups.Startup;
 
 public class EvolvedInstagram extends Instagram {
 
+    /**
+     * Decorator for Instagram.
+     * @param startup Instagram.
+     */
     public EvolvedInstagram(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());

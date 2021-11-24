@@ -25,17 +25,6 @@ public class Startup {
     private int level;
     private String name;
     private String type;
-    
-    // private List moves;
-    // private Type type;
-
-    /*
-    private enum Type{
-        SOCIAL_MEDIA,
-        VIDEO_SHARING,
-        IMAGE_SHARING
-    }
-    */
 
     public int getHealth() {
         return health;
@@ -102,25 +91,35 @@ public class Startup {
         this.level = level;
     }
     
+    /**
+     * Decides on a random amount of damage.
+     * @return random damage number.
+     */
     public int randomDamage() {
         Random rand = new Random();
         int random = rand.nextInt(attack * 3) + level;
         return random;
     }
     
+    /**
+     * Algorithm for deciding how leveling up works.
+     * @return boolean for success or failure.
+     */
     public boolean levelUp() {
         if (getLevel() == MAX_LEVEL) {
             System.out.println("Max Startup level already reached!");
             return false;
         }
         
-        Random rand = new Random();
-        int random;
+
         
         System.out.println(this.getName() + " has gained a rank!");
         
         setLevel(getLevel() + 1);
         System.out.println("Rank: " + getLevel());
+        
+        Random rand = new Random();
+        int random;
         
         random = rand.nextInt(35) + 1;
         setHealth((int)((getHealth() + (getHealth() * .25) + random)));
@@ -140,18 +139,25 @@ public class Startup {
         
     }
     
+    /**
+     * Algorithm that brings up the level of
+     * randomly encountered startups to
+     * the level of the current first in the party.
+     * @return boolean for success or failure.
+     */
     public boolean encounterLevelUp() {
         if (getLevel() == MAX_LEVEL) {
             return false;
         }
-        Random rand = new Random();
-        int random;
         
         setLevel(getLevel() + 1);
         
         setHealth((int)(getHealth() + (getHealth() * .15)));
         
         setCurrentHealth(getHealth());
+        
+        Random rand = new Random();
+        int random;
         
         random = rand.nextInt(5 + getLevel()) + 1;
         setAttack(getAttack() + random);
@@ -162,41 +168,41 @@ public class Startup {
         
     }
     
+    /**
+     * This is the factory that figures out 
+     * what type of startup is trying to evolve
+     * so it can be decorated.
+     * @return Decorated Startup.
+     */
     public Startup evolve() {
         
         Startup s = this;
         
         if (s instanceof Bing) {
-            return s = new EvolvedBing(s);
+            return new EvolvedBing(this);
         } else if (s instanceof Facebook) {
-            return s = new EvolvedFacebook(s);
+            return new EvolvedFacebook(this);
         } else if (s instanceof Google) {
-            return s = new EvolvedGoogle(s);
+            return new EvolvedGoogle(this);
         } else if (s instanceof Instagram) {
-            return s = new EvolvedInstagram(s);
+            return new EvolvedInstagram(this);
         } else if (s instanceof Reddit) {
-            return s = new EvolvedReddit(s);
+            return new EvolvedReddit(this);
         } else if (s instanceof Snapchat) {
-            return s = new EvolvedSnapchat(s);
+            return new EvolvedSnapchat(this);
         } else if (s instanceof TikTok) {
-            return s = new EvolvedTikTok(s);
+            return new EvolvedTikTok(this);
         } else if (s instanceof Twitter) {
-            return s = new EvolvedTwitter(s);
+            return new EvolvedTwitter(this);
         } else if (s instanceof Vimeo) {
-            return s = new EvolvedVimeo(s);
+            return new EvolvedVimeo(this);
         } else if (s instanceof YouTube) {
-            return s = new EvolvedYouTube(s);
+            return new EvolvedYouTube(this);
         } else {
             System.out.println("I'M NOT SURE HOW YOU MANAGED TO GET HERE.");
-            return null;
+            return this;
         }
         
     }
-    
-    /*
-    public List getMoves() {
-        return moves;
-    }
-    */
 
 }

@@ -5,6 +5,10 @@ import main.java.startups.Startup;
 
 public class EvolvedBing extends Bing {
 
+    /**
+     * Decorator for Bing.
+     * @param startup Bing.
+     */
     public EvolvedBing(Startup startup) {
         //super();
         super.setLevel(startup.getLevel());
