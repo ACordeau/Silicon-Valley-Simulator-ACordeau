@@ -84,7 +84,7 @@ public class Quarter4 implements Quarters {
     //Sets extra cut boolean
     private boolean moneyLaundering(TechGiant tg) {
         
-        if (!tg.getType().equals("BROWSING")) {
+        if (!tg.getType().equals("BROWSER")) {
             tg.setIsExtraCut(true);
             return true;
         } else {

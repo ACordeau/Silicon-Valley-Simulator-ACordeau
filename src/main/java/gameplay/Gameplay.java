@@ -172,7 +172,8 @@ public class Gameplay {
             }
         }
         
-        
+        int typeCheck = 0;
+        typeCheck = typeChecking(startupOne, startupTwo);
         boolean crit;
         boolean miss = calculateMiss();
         if (miss == false) {
@@ -185,9 +186,19 @@ public class Gameplay {
 
             int attack = startupOne.getAttack() + startupOne.randomDamage();
             
+            if (typeCheck == 1) {
+                attack = (int)(attack * 1.2);
+                System.out.println("\nNEXT ATTACK IS SUPER EFFECTIVE!");
+            }
+            
+            if (typeCheck == -1) {
+                attack = (int)(attack * .8);
+                System.out.println("\nNEXT ATTACK IS NOT VERY EFFECTIVE!");
+            }
+            
             if (crit == true) {
                 attack = attack * 2;
-                System.out.println("\n NEXT ATTACK IS A CRITICAL HIT");
+                System.out.println("\nNEXT ATTACK IS A CRITICAL HIT");
             }
     
             int defend = startupTwo.getDefense();
@@ -242,6 +253,8 @@ public class Gameplay {
             return false;
         }
         
+        int typeCheck = 0;
+        typeCheck = typeChecking(battler, encountered);
         boolean crit;
         boolean miss = calculateMiss();
         if (miss == false) {
@@ -254,9 +267,19 @@ public class Gameplay {
             
             int attack = battler.getAttack() + battler.randomDamage();
             
+            if (typeCheck == 1) {
+                attack = (int)(attack * 1.2);
+                System.out.println("\nNEXT ATTACK IS SUPER EFFECTIVE!");
+            }
+            
+            if (typeCheck == -1) {
+                attack = (int)(attack * .8);
+                System.out.println("\nNEXT ATTACK IS NOT VERY EFFECTIVE!");
+            }
+            
             if (crit == true) {
                 attack = attack * 2;
-                System.out.println("\n NEXT ATTACK IS A CRITICAL HIT");
+                System.out.println("\nNEXT ATTACK IS A CRITICAL HIT");
             }
     
             int defend = encountered.getDefense();
@@ -313,6 +336,8 @@ public class Gameplay {
             return false;
         }
         
+        int typeCheck = 0;
+        typeCheck = typeChecking(encountered, battler);
         boolean crit;
         boolean miss = calculateMiss();
         if (miss == false) {
@@ -325,9 +350,19 @@ public class Gameplay {
         
             int attack = encountered.getAttack() + encountered.randomDamage();
             
+            if (typeCheck == 1) {
+                attack = (int)(attack * 1.2);
+                System.out.println("\nNEXT ATTACK IS SUPER EFFECTIVE!");
+            }
+            
+            if (typeCheck == -1) {
+                attack = (int)(attack * .8);
+                System.out.println("\nNEXT ATTACK IS NOT VERY EFFECTIVE!");
+            }
+            
             if (crit == true) {
                 attack = attack * 2;
-                System.out.println("\n NEXT ATTACK IS A CRITICAL HIT");
+                System.out.println("\nNEXT ATTACK IS A CRITICAL HIT");
             }
     
             int defend = battler.getDefense();
@@ -364,6 +399,33 @@ public class Gameplay {
         }
         
         return true;
+    }
+    
+    /**
+     * This method checks to see if an attack
+     * is going to be super effective, or not 
+     * very effective.
+     * @param one Startup attacking.
+     * @param two Startup defending.
+     * @return int value to determine attack effectiveness.
+     */
+    public int typeChecking(Startup one, Startup two) {
+        
+        if (one.getType().equals("VIDEO SHARING") 
+                && two.getType().equals("IMAGE SHARING")) {
+            return 1;
+        } else if (two.getType().equals("VIDEO SHARING") 
+                && one.getType().equals("IMAGE SHARING")) {
+            return -1;
+        } else if (one.getType().equals("BROWSER") 
+                && two.getType().equals("SOCIAL MEDIA")) {
+            return 1;
+        } else if (two.getType().equals("BROWSER") 
+                && one.getType().equals("SOCIAL MEDIA")) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
     
     /**

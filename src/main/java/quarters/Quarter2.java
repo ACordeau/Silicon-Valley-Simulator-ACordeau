@@ -93,7 +93,7 @@ public class Quarter2 implements Quarters {
     //Chooses a random type.
     private String randomType() {
         String type;
-        String[] types = { "IMAGE SHARING", "VIDEO SHARING", "BROWSING", "SOCIAL MEDIA" };
+        String[] types = { "IMAGE SHARING", "VIDEO SHARING", "BROWSER", "SOCIAL MEDIA" };
         Random random = new Random();
         int rand;
         rand = random.nextInt(4);
