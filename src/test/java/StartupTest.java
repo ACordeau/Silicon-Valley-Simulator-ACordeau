@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import main.java.gameplay.Gameplay;
 import main.java.startups.Bing;
 import main.java.startups.Facebook;
 import main.java.startups.Google;
@@ -22,8 +23,10 @@ import org.junit.Test;
 
 public class StartupTest {
 
+    Gameplay game;
     StartupFactory startupFactory;
     Startup startup;
+    Startup startup2;
 
     @Before
     public void setUp() throws Exception {
@@ -208,5 +211,5 @@ public class StartupTest {
         assertEquals(2, startup.getLevel());
         
     }
-
+    
 }

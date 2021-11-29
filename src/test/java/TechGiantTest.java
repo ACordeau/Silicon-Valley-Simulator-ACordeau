@@ -2,8 +2,10 @@ package test.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import main.java.gameplay.Gameplay;
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
 import main.java.techgiants.PandaSuplex;
@@ -19,8 +21,10 @@ public class TechGiantTest {
     
     TechGiantFactory techGiantFactory;
     TechGiant techGiant;
+    TechGiant techGiant2;
     StartupFactory startupFactory;
     Startup startup;
+    Gameplay game;
     
     /**
      * This tests to ensure the tech giant factory works.
@@ -154,6 +158,100 @@ public class TechGiantTest {
         techGiant = techGiantFactory.randomTechGiant(4);
         
         assertTrue(techGiant instanceof Polygon);
+        
+    }
+    
+    /**
+     * Tests to make sure takeover works properly.
+     */
+    @Test
+    public void takeoverTestGiantOne() {
+        
+        game = new Gameplay();
+        int chosen;
+        techGiantFactory = new TechGiantFactory();
+        techGiant = techGiantFactory.randomTechGiant(3);
+        techGiant2 = techGiantFactory.randomTechGiant(4);
+        chosen = techGiant.initialStartup();
+        chosen = techGiant2.initialStartup();
+        startupFactory = new StartupFactory();
+        startup = startupFactory.randomStartup(chosen);
+        
+        techGiant2.getStartups().get(0).setCurrentHealth(0);
+        
+        Startup tester = techGiant2.getStartups().get(0);
+        
+        assertEquals(game.takeover(techGiant, techGiant2), tester);
+        
+    }
+    
+    /**
+     * Tests to make sure takeover works properly.
+     */
+    @Test
+    public void takeoverTestGiantTwo() {
+
+        game = new Gameplay();
+        int chosen;
+        techGiantFactory = new TechGiantFactory();
+        techGiant = techGiantFactory.randomTechGiant(3);
+        techGiant2 = techGiantFactory.randomTechGiant(4);
+        chosen = techGiant.initialStartup();
+        chosen = techGiant2.initialStartup();
+        startupFactory = new StartupFactory();
+        startup = startupFactory.randomStartup(chosen);
+        
+        techGiant.getStartups().get(0).setCurrentHealth(0);
+        
+        Startup tester = techGiant.getStartups().get(0);
+        
+        assertEquals(game.takeover(techGiant, techGiant2), tester);
+        
+    }
+    
+    /**
+     * Tests to make sure game over works properly.
+     */
+    @Test
+    public void gameoverTestGiantOne() {
+        
+        game = new Gameplay();
+        int chosen;
+        techGiantFactory = new TechGiantFactory();
+        techGiant = techGiantFactory.randomTechGiant(3);
+        techGiant2 = techGiantFactory.randomTechGiant(4);
+        chosen = techGiant.initialStartup();
+        chosen = techGiant2.initialStartup();
+        startupFactory = new StartupFactory();
+        startup = startupFactory.randomStartup(chosen);
+        
+        techGiant2.getStartups().get(0).setCurrentHealth(0);
+        game.takeover(techGiant2, techGiant);
+        
+        assertTrue(Gameplay.gameOver(techGiant2, techGiant));
+        
+    }
+    
+    /**
+     * Tests to make sure game over works properly.
+     */
+    @Test
+    public void gameoverTestGiantTwp() {
+        
+        game = new Gameplay();
+        int chosen;
+        techGiantFactory = new TechGiantFactory();
+        techGiant = techGiantFactory.randomTechGiant(3);
+        techGiant2 = techGiantFactory.randomTechGiant(4);
+        chosen = techGiant.initialStartup();
+        chosen = techGiant2.initialStartup();
+        startupFactory = new StartupFactory();
+        startup = startupFactory.randomStartup(chosen);
+        
+        techGiant.getStartups().get(0).setCurrentHealth(0);
+        game.takeover(techGiant2, techGiant);
+        
+        assertTrue(Gameplay.gameOver(techGiant2, techGiant));
         
     }
 
