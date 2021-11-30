@@ -6,3 +6,6 @@ The second pattern used is the Decorator Pattern which you can find implemented 
 
 The final pattern used is the State Pattern, the states change inside of the Gameplay.java class in the Gameplay package, and the states themselves are implemented in the Quarters package.
 
+Repo: https://github.com/ACordeau/Silicon-Valley-Simulator-ACordeau.git
+
+Screencast: https://drive.google.com/file/d/19QPWqo_76-TtXAc398Vrga044L5XGPjA/view?usp=sharing (Sorry no audio, in the middle of a move)
