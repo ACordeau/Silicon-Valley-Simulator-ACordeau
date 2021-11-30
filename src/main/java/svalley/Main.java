@@ -1,14 +1,23 @@
+/**
+ * Entry point of the program that creates
+ * the gameplay object that begins all the
+ * execution.
+ */
+
 package main.java.svalley;
 
+import main.java.gameplay.Gameplay;
+
 public class Main {
-    
+
+    /**
+     * Entry point of program.
+     * 
+     * @param args arguments.
+     */
     public static void main(String[] args) {
-        start();
-    }
-    
-    public static boolean start() {
-        System.out.println("Hello World!");
-        return true;
+        Gameplay obj = new Gameplay();
+        obj.start();
     }
 
 }
