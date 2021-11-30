@@ -1,7 +1,6 @@
 package test.java;
 
 import static org.junit.Assert.assertTrue;
-import org.junit.Test;
 
 import main.java.evolutions.EvolvedBing;
 import main.java.evolutions.EvolvedFacebook;
@@ -16,6 +15,8 @@ import main.java.evolutions.EvolvedYouTube;
 import main.java.gameplay.Gameplay;
 import main.java.startups.Startup;
 import main.java.startups.StartupFactory;
+
+import org.junit.Test;
 
 public class StartupEvolutionTest {
 

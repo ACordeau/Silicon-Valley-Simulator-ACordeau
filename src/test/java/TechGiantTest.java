@@ -168,10 +168,13 @@ public class TechGiantTest {
     public void takeoverTestGiantOne() {
         
         game = new Gameplay();
-        int chosen;
+        
         techGiantFactory = new TechGiantFactory();
         techGiant = techGiantFactory.randomTechGiant(3);
         techGiant2 = techGiantFactory.randomTechGiant(4);
+        
+        int chosen;
+        
         chosen = techGiant.initialStartup();
         chosen = techGiant2.initialStartup();
         startupFactory = new StartupFactory();
@@ -192,10 +195,13 @@ public class TechGiantTest {
     public void takeoverTestGiantTwo() {
 
         game = new Gameplay();
-        int chosen;
+
         techGiantFactory = new TechGiantFactory();
         techGiant = techGiantFactory.randomTechGiant(3);
         techGiant2 = techGiantFactory.randomTechGiant(4);
+        
+        int chosen;
+        
         chosen = techGiant.initialStartup();
         chosen = techGiant2.initialStartup();
         startupFactory = new StartupFactory();
@@ -216,10 +222,13 @@ public class TechGiantTest {
     public void gameoverTestGiantOne() {
         
         game = new Gameplay();
-        int chosen;
+
         techGiantFactory = new TechGiantFactory();
         techGiant = techGiantFactory.randomTechGiant(3);
         techGiant2 = techGiantFactory.randomTechGiant(4);
+        
+        int chosen;
+        
         chosen = techGiant.initialStartup();
         chosen = techGiant2.initialStartup();
         startupFactory = new StartupFactory();
@@ -239,10 +248,13 @@ public class TechGiantTest {
     public void gameoverTestGiantTwp() {
         
         game = new Gameplay();
-        int chosen;
+
         techGiantFactory = new TechGiantFactory();
         techGiant = techGiantFactory.randomTechGiant(3);
         techGiant2 = techGiantFactory.randomTechGiant(4);
+        
+        int chosen;
+        
         chosen = techGiant.initialStartup();
         chosen = techGiant2.initialStartup();
         startupFactory = new StartupFactory();
