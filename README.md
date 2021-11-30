@@ -1,3 +1,8 @@
 # Silicon-Valley-Simulator-ACordeau
 
-Current plan is to have an abstract factory to decide randomly what the encountered startups are going to be, a decorator pattern to "level up" the startup companies, and a state pattern to determine the current quarter and the current battle turn.
+The first design pattern I used is the Facotry Pattern for determining Startups and TechGiants at runtime. You can find in the Startup and TechGiants package a factory for each.
+
+The second pattern used is the Decorator Pattern which you can find implemented inside of the Startup.java class. The actual decorated classes are found in the Evolutions package.
+
+The final pattern used is the State Pattern, the states change inside of the Gameplay.java class in the Gameplay package, and the states themselves are implemented in the Quarters package.
+

@@ -1,31 +1,30 @@
 package test.java;
 
-import main.java.svalley.*;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.*;
+import main.java.gameplay.Gameplay;
+import main.java.svalley.Main;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestCases {
-    
-    Main main;
-    
+
     @Before
     public void setUp() throws Exception {
     }
     
-    @Test
-    public void mainTest() {
-
-        assertTrue(Main.start());
-        
-    }
+    Gameplay game;
     
+    /**
+     * Tests the flow of gameplay.
+     */
     @Test
-    public void mainMethodTest() {
+    public void gameStartTest() {
         
-        assertNotNull(main = new Main());
+        game = new Gameplay();
+        
+        assertTrue(game.start());
         
     }
 
